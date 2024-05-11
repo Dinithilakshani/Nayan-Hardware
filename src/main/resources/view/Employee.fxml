@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hardwareManagment.Controller.EmployeeFormController">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="940.0">
+         <image>
+            <Image url="@../assets/lala.jpg" />
+         </image>
+      </ImageView>
+      <Text fill="#dcd0d0" layoutX="14.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-blend-mode: #34495e;" text="Employee Manage" wrappingWidth="259.8277587890625">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fill="#f7efef" layoutX="25.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee name">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#f4efef" layoutX="25.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Id">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#efe5e5" layoutX="442.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Address">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#eadddd" layoutX="450.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" contact number">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtname" layoutX="135.0" layoutY="181.0" onKeyReleased="#txtOnKeyReleased" prefHeight="35.0" prefWidth="254.0" style="-fx-alignment: white; -fx-background-radius: 30;" />
+      <TextField fx:id="txtid" layoutX="135.0" layoutY="264.0" onKeyReleased="#txtOnKeyReleased" prefHeight="35.0" prefWidth="254.0" style="-fx-alignment: white; -fx-background-radius: 30;" />
+      <TextField fx:id="txtNumber" layoutX="540.0" layoutY="259.0" onAction="#txtsearchOnAction" onKeyReleased="#txtOnKeyReleased" prefHeight="35.0" prefWidth="254.0" style="-fx-alignment: white; -fx-background-radius: 30;" />
+      <TextField fx:id="txtAddress" layoutX="540.0" layoutY="181.0" onKeyReleased="#txtOnKeyReleased" prefHeight="35.0" prefWidth="254.0" style="-fx-alignment: white; -fx-background-radius: 30;" />
+      <Button fx:id="BtnClear" layoutX="807.0" layoutY="388.0" mnemonicParsing="false" onAction="#BtnClearOnAction" prefHeight="50.0" prefWidth="118.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Clear" textFill="#efeaea">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button fx:id="BtnSave" layoutX="807.0" layoutY="173.0" mnemonicParsing="false" onAction="#BtnSaveOnAction" prefHeight="50.0" prefWidth="118.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Save" textFill="#f7eeee">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button fx:id="BtnUpdate" layoutX="807.0" layoutY="248.0" mnemonicParsing="false" onAction="#BtnUpdateOnAction" prefHeight="50.0" prefWidth="118.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Update" textFill="#e1dada">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button fx:id="btnDelete" layoutX="807.0" layoutY="322.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="50.0" prefWidth="118.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Delete" textFill="#dfd6d6">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <ImageView fitHeight="24.0" fitWidth="34.0" layoutX="341.0" layoutY="336.0">
+         <image>
+            <Image url="@../assets/clear%20pic.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblEmployee" layoutX="49.0" layoutY="456.0" prefHeight="343.0" prefWidth="842.0">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="154.39999389648438" text="Employee name" />
+          <TableColumn fx:id="colId" prefWidth="179.199951171875" text="Employee Id" />
+            <TableColumn fx:id="colAdresss" prefWidth="222.4000244140625" text="Employee Address" />
+            <TableColumn fx:id="colNumber" prefWidth="284.00006103515625" text="Contactnumber" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="17.0" fitWidth="25.0" layoutX="815.0" layoutY="339.0">
+         <image>
+            <Image url="@../assets/bin.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="34.0" layoutX="811.0" layoutY="401.0">
+         <image>
+            <Image url="@../assets/broom.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="17.0" fitWidth="25.0" layoutX="816.0" layoutY="190.0">
+         <image>
+            <Image url="@../assets/download.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="17.0" fitWidth="25.0" layoutX="815.0" layoutY="265.0">
+         <image>
+            <Image url="@../assets/refresh.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="73.0" fitWidth="146.0" layoutX="793.0">
+         <image>
+            <Image url="@../assets/LAYAN%20LOGO.png" />
+         </image>
+      </ImageView>
+
+   </children>
+</AnchorPane>

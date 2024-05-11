@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hardwareManagment.Controller.OrderFormController">
+   <children>
+      <ImageView fx:id="colAmount" fitHeight="800.0" fitWidth="938.0">
+         <image>
+            <Image url="@../assets/lala.jpg" />
+         </image>
+      </ImageView>
+      <Text fill="#f2eded" layoutX="47.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order  Manage">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <Text fill="#f2eded" layoutX="14.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="description">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fill="#f2eded" layoutX="14.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Code">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fill="#f2eded" layoutX="443.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer email">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#f2eded" layoutX="464.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="qyt">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#f2eded" layoutX="455.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnSave" layoutX="793.0" layoutY="173.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="50.0" prefWidth="118.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Save" textFill="#fafaf2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnUpdate" layoutX="793.0" layoutY="339.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="50.0" prefWidth="118.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Update" textFill="#fafaf2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete" layoutX="793.0" layoutY="250.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="50.0" prefWidth="118.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Delete" textAlignment="CENTER" textFill="#fafaf2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnClear" layoutX="793.0" layoutY="415.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="50.0" prefWidth="118.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="clear" textFill="#fafaf2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="86.0" fitWidth="118.0" layoutX="793.0" layoutY="14.0">
+         <image>
+            <Image url="@../assets/LAYAN%20LOGO.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="799.0" layoutY="263.0">
+         <image>
+            <Image url="@../assets/bin.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="25.0" layoutX="799.0" layoutY="428.0">
+         <image>
+            <Image url="@../assets/broom.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblPayment" layoutX="41.0" layoutY="505.0" prefHeight="275.0" prefWidth="853.0">
+        <columns>
+          <TableColumn fx:id="colCode" prefWidth="119.99999618530273" text="Item code" />
+          <TableColumn fx:id="colPaymnetCode" prefWidth="200.80003356933594" text="Payment Code" />
+            <TableColumn fx:id="comEmail" prefWidth="207.20001220703125" text="Customer Email" />
+            <TableColumn fx:id="colqty" prefWidth="157.60009765625" text="qty" />
+            <TableColumn fx:id="colAmonnt" prefWidth="208.79998779296875" text="Amount" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtPayment" layoutX="107.0" layoutY="358.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="254.0" style="-fx-alignment: white; -fx-background-radius: 30;" />
+      <TextField fx:id="txtqty" layoutX="464.0" layoutY="175.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="254.0" style="-fx-alignment: white; -fx-background-radius: 30;" />
+      <TextField fx:id="txtAmount" layoutX="477.0" layoutY="287.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="254.0" style="-fx-alignment: white; -fx-background-radius: 30;" />
+      <Text fill="#efe4e4" layoutX="271.0" layoutY="434.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order date">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <DatePicker fx:id="txtDate" layoutX="396.0" layoutY="439.0" prefHeight="35.0" prefWidth="254.0" />
+      <ImageView fitHeight="14.0" fitWidth="25.0" layoutX="799.0" layoutY="193.0">
+         <image>
+            <Image url="@../assets/download.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="25.0" layoutX="799.0" layoutY="352.0">
+         <image>
+            <Image url="@../assets/refresh.png" />
+         </image>
+      </ImageView>
+      <Text fill="#fcf4f4" layoutX="30.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OrderId">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtOrderId" layoutX="107.0" layoutY="180.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="254.0" style="-fx-alignment: white; -fx-background-radius: 30;" />
+      <TextField fx:id="txtEmail" layoutX="489.0" layoutY="371.0" onAction="#txtEmailOnAction" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="254.0" style="-fx-alignment: white; -fx-background-radius: 30;" />
+      <TextField fx:id="txtDescription" layoutX="107.0" layoutY="258.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="254.0" style="-fx-alignment: white; -fx-background-radius: 30;" />
+   </children>
+</AnchorPane>
