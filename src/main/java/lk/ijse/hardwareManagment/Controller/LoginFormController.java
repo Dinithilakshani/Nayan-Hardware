@@ -22,6 +22,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.regex.Pattern;
 
 public class LoginFormController {
 
@@ -39,6 +41,8 @@ public class LoginFormController {
     private TextField txtUserName;
     private AnchorPane rootNode;
 
+    LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
+
     @FXML
     void btnLoginOnAction(ActionEvent event) {
         String password = txtPassword.getText();
@@ -46,15 +50,14 @@ public class LoginFormController {
 
         UserModel userModel = new UserModel();
         boolean value = userModel.userCheck(userName, password);
-        if (value==true){
+        if (value == true) {
             Navigation navigation = new Navigation();
             navigation.NewWindowsNavigation("Dashboard.fxml");
 
             Stage window = (Stage) mainPane.getScene().getWindow();
             window.close();
-        }
-        else {
-            new Alert(Alert.AlertType.ERROR,"Wrong Details..!").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Wrong Details..!").show();
         }
 
     }
@@ -93,15 +96,15 @@ public class LoginFormController {
 
 
     @FXML
-    void btnSignInOnAction(ActionEvent event) throws IOException{
+    void btnSignInOnAction(ActionEvent event) throws IOException {
         Parent rootNode = (Parent) FXMLLoader.load(this.getClass().getResource("/view/signin.fxml"));
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.setTitle("Sign In Form");
         stage.show();
+
     }
 }
-
 
 

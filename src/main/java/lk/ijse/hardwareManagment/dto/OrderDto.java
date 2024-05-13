@@ -12,9 +12,10 @@ import lombok.ToString;
 
 public class OrderDto {
     private String orderId;
+    private String date;
+    private String customerID;
+    private String Email;
 
-    private String description;
-    private String QtyOnHand;
-    private String amount;
-    private String email;
+
+
 }

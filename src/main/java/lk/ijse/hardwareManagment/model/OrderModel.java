@@ -1,8 +1,11 @@
 package lk.ijse.hardwareManagment.model;
 
+import javafx.collections.ObservableList;
 import lk.ijse.hardwareManagment.db.DbConnection;
 import lk.ijse.hardwareManagment.dto.CustomerDto;
+import lk.ijse.hardwareManagment.dto.ItemDto;
 import lk.ijse.hardwareManagment.dto.OrderDto;
+import lk.ijse.hardwareManagment.dto.OrderdetailsDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,18 +26,16 @@ public class OrderModel {
         }
     }
 
-    public static OrderDto searchById(String email) throws SQLException{
+    public static OrderDto searchById(String email) throws SQLException {
         String sql = "SELECT * FROM order_detail WHERE  email=?";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1,email);
+        pstm.setObject(1, email);
         ResultSet resultSet = pstm.executeQuery();
 
         OrderDto orderDto = null;
-
-
 
 
         if (resultSet.next()) {
@@ -45,11 +46,10 @@ public class OrderModel {
             String emails = resultSet.getString(5);
 
 
-            orderDto  = new OrderDto( OrderId, description, qty,amount,emails);
+            orderDto = new OrderDto(OrderId, description, qty, amount, emails);
         }
         return orderDto;
     }
-
 
 
     public int saveCustomer(String amount, String qty, String payment, String description, String email, String orderId) {
@@ -78,7 +78,7 @@ public class OrderModel {
             pstm.setObject(2, description);
             pstm.setObject(3, qty);
             pstm.setObject(4, amount);
-            pstm.setObject(5,email);
+            pstm.setObject(5, email);
             return pstm.executeUpdate();
 
         } catch (SQLException var8) {
@@ -99,7 +99,7 @@ public class OrderModel {
             while (resultSet.next()) {
 
 
-                CustomerDto customerDto   = new CustomerDto(
+                CustomerDto customerDto = new CustomerDto(
                         resultSet.getString(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
@@ -111,7 +111,6 @@ public class OrderModel {
                 Order.add(new OrderDto());
 
 
-
             }
             return Order;
 
@@ -119,7 +118,82 @@ public class OrderModel {
             throw new RuntimeException(ex);
         }
     }
+
+    public boolean saveOrder(String orderId, String date, String customerId, String customerEmail, Double
+            total, ObservableList<OrderdetailsDto> observableList) throws SQLException {
+        Connection connection = null;
+        try {
+            connection = DbConnection.getInstance().getConnection();
+            connection.setAutoCommit(false);
+
+            boolean saveOrder = save(new OrderDto(orderId, customerId, customerEmail, date));
+            if (saveOrder == true) {
+
+                boolean saveOrderDetails = orderdetailsSave(orderId, observableList);
+                if (saveOrderDetails == true) {
+                    boolean b = updateItemQty(observableList);
+                    if (b == true) {
+                        connection.commit();
+                        return true;
+                    }
+                }
+            }
+            return false;
+        } catch (Exception e) {
+            connection.rollback();
+            return false;
+        } finally {
+            connection.setAutoCommit(true);
+        }
+    }
+
+    private boolean updateItemQty(ObservableList<OrderdetailsDto> observableList) {
+        for (OrderdetailsDto dto : observableList) {
+            ItemModel itemModel = new ItemModel();
+            ItemDto itemDto = itemModel.searchItem(dto.getcode());
+            boolean b = itemModel.UpdateItem(new ItemDto(dto.ge(), dto.getDescription(), dto.g(), itemDto.getQty() - dto.getQty()));
+            if (!b) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    private boolean orderdetailsSave(String orderId, ObservableList<OrderdetailsDto> observableList) throws SQLException {
+        for (OrderdetailsDto dto : observableList) {
+            Connection connection = DbConnection.getInstance().getConnection();
+            PreparedStatement pstm = connection.prepareStatement("insert into order_detail values(?,?,?,?,?)");
+            pstm.setObject(1, orderId);
+            pstm.setObject(2, dto.getDescription());
+            pstm.setObject(3, dto.getQtyOnHand());
+            pstm.setObject(4, dto.getQty());
+            pstm.setObject(5,dto.getAmount());
+            boolean b = pstm.executeUpdate() > 0;
+            if (!b) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean save(OrderDto orderDto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("insert into orders values(?,?,?,?)");
+        pstm.setObject(1, orderDto.getOrderId());
+        pstm.setObject(2, orderDto.getDate());
+        pstm.setObject(3, orderDto.getCustomerID());
+        pstm.setObject(4, orderDto.getEmail());
+        return pstm.executeUpdate() > 0;
+    }
+
 }
+
+
+
+
+
+
 
 
 

@@ -12,34 +12,28 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="795.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hardwareManagment.Controller.HomeFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="795.0" prefWidth="1142.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hardwareManagment.Controller.HomeFormController">
    <children>
-      <ImageView fitHeight="795.0" fitWidth="844.0">
+      <ImageView fitHeight="795.0" fitWidth="954.0">
          <image>
             <Image url="@../assets/kk.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="136.0" layoutX="529.0" layoutY="74.0" stroke="BLACK" strokeType="INSIDE" width="171.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="136.0" layoutX="556.0" layoutY="259.0" stroke="BLACK" strokeType="INSIDE" width="171.0" />
-      <Text fill="#302a2a" layoutX="551.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer count">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="136.0" layoutX="392.0" layoutY="68.0" stroke="BLACK" strokeType="INSIDE" width="171.0" />
+      <Text fill="#302a2a" layoutX="413.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer count">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="525.0" layoutX="461.0" layoutY="252.0" stroke="#718093" strokeType="INSIDE" width="368.0" />
-      <TextArea layoutX="478.0" layoutY="274.0" prefHeight="490.0" prefWidth="336.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="431.0" layoutX="19.0" layoutY="338.0" stroke="BLACK" strokeType="INSIDE" width="418.0" />
-      <ImageView fitHeight="100.0" fitWidth="134.0" layoutX="700.0" layoutY="9.0">
-         <image>
-            <Image url="@../assets/LAYAN%20LOGO.png" />
-         </image>
-      </ImageView>
-      <Text layoutX="575.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valuation">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="781.0" layoutX="596.0" layoutY="8.0" stroke="#718093" strokeType="INSIDE" width="427.0" />
+      <TextArea layoutX="625.0" layoutY="39.0" prefHeight="734.0" prefWidth="378.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="514.0" layoutX="19.0" layoutY="255.0" stroke="BLACK" strokeType="INSIDE" width="549.0" />
+      <Text layoutX="721.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valuation">
          <font>
             <Font size="32.0" />
          </font>
       </Text>
-      <StackedBarChart layoutX="35.0" layoutY="394.0" prefHeight="360.0" prefWidth="390.0">
+      <StackedBarChart layoutX="35.0" layoutY="328.0" prefHeight="426.0" prefWidth="492.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -47,12 +41,12 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </StackedBarChart>
-      <Text layoutX="115.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available stock">
+      <Text layoutX="129.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available stock">
          <font>
             <Font size="32.0" />
          </font>
       </Text>
-      <Label fx:id="lblCustomerCount" alignment="CENTER" contentDisplay="CENTER" layoutX="541.0" layoutY="88.0" prefHeight="107.0" prefWidth="146.0" style="-fx-background-color: white; -fx-background-radius: 30;" textOverrun="CENTER_ELLIPSIS">
+      <Label fx:id="lblCustomerCount" alignment="CENTER" contentDisplay="CENTER" layoutX="404.0" layoutY="82.0" prefHeight="107.0" prefWidth="146.0" style="-fx-background-color: white; -fx-background-radius: 30;" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>

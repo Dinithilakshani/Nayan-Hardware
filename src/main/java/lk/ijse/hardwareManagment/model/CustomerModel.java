@@ -107,7 +107,7 @@ return pstm.executeUpdate();
             while (resultSet.next()) {
 
 
-                CustomerDto customerDto   = new CustomerDto(
+                CustomerDto customerDto = new CustomerDto(
                         resultSet.getString(2),
                         resultSet.getString(1),
                         resultSet.getString(3),
@@ -119,14 +119,16 @@ return pstm.executeUpdate();
                 Customer.add(customerDto);
 
 
-
             }
-                return Customer;
+            return Customer;
 
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
+
     }
+
+
 }
 
 

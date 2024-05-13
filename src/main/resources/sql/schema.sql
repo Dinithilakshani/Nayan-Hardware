@@ -11,11 +11,16 @@ CREATE TABLE customer(
                         contactnumber varchar(10) unique key
 );
 
-CREATE TABLE orders(
-                       id VARCHAR(6) PRIMARY KEY,
-                       date DATE,
-                       customerId VARCHAR(6) NOT NULL,
-                       CONSTRAINT FOREIGN KEY(customerId) REFERENCES customer(id) on Delete Cascade on Update Cascade
+CREATE TABLE orders
+(
+    id         VARCHAR(6) PRIMARY KEY,
+    date       DATE,
+    customerId VARCHAR(6) NOT NULL,
+    email      varchar(30) unique key,
+    CONSTRAINT FOREIGN KEY (customerId) REFERENCES customer (id) on Delete Cascade on Update Cascade,
+    CONSTRAINT FOREIGN KEY (email) REFERENCES customer (email) on Delete Cascade on Update Cascade
+
+
 );
 
 CREATE TABLE item(
@@ -31,12 +36,13 @@ CREATE TABLE order_detail
     orderId     VARCHAR(6),
     description VARCHAR(50) unique key,
         qtyOnHand varchar (11),
+    qty varchar (10),
+    unitprice int (20),
 
     amount      varchar(20),
-    email       varchar(30) unique key,
+
     CONSTRAINT FOREIGN KEY (orderId) REFERENCES orders (id) on Delete Cascade on Update Cascade,
 
-    CONSTRAINT FOREIGN KEY (email) REFERENCES customer (email) on Delete Cascade on Update Cascade,
         CONSTRAINT FOREIGN KEY (description) REFERENCES item (description) on Delete Cascade on Update Cascade
 
 );

@@ -272,7 +272,7 @@ public class ItemFormController implements Initializable {
                     txtCode.setText(itemDto.getCode());
                     txtDescription.setText(itemDto.getDesctription());
                     txtPrice.setText(itemDto.getPrice());
-                    txtQty.setText(itemDto.getQty());
+                    txtQty.setText(itemDto.getQtyon());
 
                 }
             } catch (SQLException e) {

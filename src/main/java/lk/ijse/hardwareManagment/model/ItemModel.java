@@ -6,6 +6,7 @@ import javafx.scene.control.ButtonType;
 import lk.ijse.hardwareManagment.db.DbConnection;
 import lk.ijse.hardwareManagment.dto.CustomerDto;
 import lk.ijse.hardwareManagment.dto.ItemDto;
+import lk.ijse.hardwareManagment.tm.ItemTm;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -58,8 +59,8 @@ public class ItemModel {
             PreparedStatement pstm = connection.prepareStatement("INSERT INTO item VALUES(?, ?, ?, ?)");
             pstm.setObject(1, code);
             pstm.setObject(2, description);
-            pstm.setObject(3, qty);
-            pstm.setObject(4, price);
+            pstm.setObject(4, qty);
+            pstm.setObject(3, price);
             return pstm.executeUpdate();
 
         } catch (SQLException var10) {
@@ -80,6 +81,7 @@ public class ItemModel {
             throw new RuntimeException();
         }
 
+
     }
 
 
@@ -89,20 +91,27 @@ public class ItemModel {
             Connection connection = DbConnection.getInstance().getConnection();
             PreparedStatement pstm = connection.prepareStatement("select * from item");
             ResultSet resultSet = pstm.executeQuery();
+            ItemDto itemDto;
             while (resultSet.next()) {
 
-                ItemDto itemDto = new ItemDto(
+                itemDto = new ItemDto(
                         resultSet.getString(1),
                         resultSet.getString(2),
                         resultSet.getString(4),
                         resultSet.getString(3)
                 );
-                item.add(itemDto);
             }
+
             return item;
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
+
+
 }
+
+
+
 
