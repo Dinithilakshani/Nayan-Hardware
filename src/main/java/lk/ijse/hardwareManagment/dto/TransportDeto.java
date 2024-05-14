@@ -14,6 +14,6 @@ public class TransportDeto {
     private String Ttime;
 
     private  String Tid;
-private String date;
 private String vehicalId;
+    private String date;
 }

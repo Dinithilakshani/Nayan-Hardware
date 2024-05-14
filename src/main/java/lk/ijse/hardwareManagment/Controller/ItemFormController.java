@@ -184,9 +184,9 @@ public class ItemFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
-        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        colPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-        colQty.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("desctription"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("QtyOnHeand"));
 
         loadTableData();
 

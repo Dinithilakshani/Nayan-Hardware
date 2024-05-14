@@ -10,12 +10,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="795.0" prefWidth="1142.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hardwareManagment.Controller.HomeFormController">
    <children>
-      <ImageView fitHeight="795.0" fitWidth="954.0">
+      <ImageView fitHeight="795.0" fitWidth="1142.0">
          <image>
             <Image url="@../assets/kk.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="192.0" layoutX="28.0" layoutY="584.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="192.0" layoutX="25.0" layoutY="572.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
       <Text fill="#302a2a" layoutX="81.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer count">
          <font>
             <Font size="18.0" />
@@ -26,9 +26,31 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="timeLebal" layoutX="8.0" prefHeight="471.0" prefWidth="1142.0" text="Label" textFill="#3b1f89">
+      <Label fx:id="timeLebal" layoutX="39.0" layoutY="14.0" prefHeight="471.0" prefWidth="1142.0" text="Label" textFill="#3b1f89">
          <font>
             <Font size="86.0" />
          </font></Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="192.0" layoutX="410.0" layoutY="572.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+      <Label fx:id="lblSupplierCount1" alignment="CENTER" contentDisplay="CENTER" layoutX="435.0" layoutY="584.0" prefHeight="168.0" prefWidth="190.0" style="-fx-background-color: white; -fx-background-radius: 30;" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="192.0" layoutX="757.0" layoutY="572.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+      <Label fx:id="lblEmployeeCount11" alignment="CENTER" contentDisplay="CENTER" layoutX="782.0" layoutY="584.0" prefHeight="168.0" prefWidth="190.0" style="-fx-background-color: white; -fx-background-radius: 30;" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Text layoutX="441.0" layoutY="547.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier Count">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="782.0" layoutY="547.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Count">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

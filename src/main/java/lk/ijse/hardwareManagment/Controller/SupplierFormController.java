@@ -1,4 +1,4 @@
-package lk.ijse.hardwareManagment.Controller;
+/*package lk.ijse.hardwareManagment.Controller;
 
 
 
@@ -18,7 +18,7 @@ import lk.ijse.hardwareManagment.dto.ItemDto;
 import lk.ijse.hardwareManagment.dto.SupplierDto;
 import lk.ijse.hardwareManagment.model.EmployeeModel;
 import lk.ijse.hardwareManagment.model.ItemModel;
-import lk.ijse.hardwareManagment.model.SupplierModel;
+//import lk.ijse.hardwareManagment.model.SupplierModel;
 import lk.ijse.hardwareManagment.util.ValidateUtil;
 
 import java.net.URL;
@@ -216,4 +216,4 @@ public class SupplierFormController implements Initializable {
         ValidateUtil.validation(map);
 
     }
-}
+}*/

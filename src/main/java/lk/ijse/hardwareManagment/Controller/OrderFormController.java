@@ -101,6 +101,7 @@ public class OrderFormController implements Initializable {
 
     @FXML
     void btnAddtoCardOnACtion(ActionEvent event) {
+        String orderId = txtOrderaId.getText();
         String code = txtItemcode.getText();
         String description = txtDescription.getText();
         int qty = Integer.parseInt(txtQtY.getText());
@@ -108,7 +109,7 @@ public class OrderFormController implements Initializable {
 
         double amount = (unitPrice * qty);
 
-        OrderdetailsDto orderDto = new OrderdetailsDto(code,description,unitPrice,qty,(unitPrice*qty));
+        OrderdetailsDto orderDto = new OrderdetailsDto(orderId,code,description,unitPrice,qty,(unitPrice*qty));
         observableList.add(orderDto);
         tblOrders.setItems(observableList);
         txtNetPrice.setText(String.valueOf(fullTotal));
@@ -122,8 +123,7 @@ public class OrderFormController implements Initializable {
             String date = String.valueOf(txtdate.getValue());
             String customerId = String.valueOf(txtcuustomerId.getText());
             String customerEmail = (String) comEmail.getValue();
-            Double total = Double.valueOf(txtNetPrice.getText());
-
+double total =10.0;
             OrderModel orderModel = new OrderModel();
             boolean b = orderModel.saveOrder(orderId, date, customerId,customerEmail, total, observableList);
             if (b){
@@ -170,7 +170,7 @@ public class OrderFormController implements Initializable {
         ColOrderId.setCellValueFactory(new PropertyValueFactory<>("orderId"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         colqty.setCellValueFactory(new PropertyValueFactory<>("qty"));
-        colUnitprice.setCellValueFactory(new PropertyValueFactory<>("unitprice"));
+        colUnitprice.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
         ColAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
     }

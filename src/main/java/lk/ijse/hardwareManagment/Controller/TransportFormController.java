@@ -20,7 +20,7 @@ import lk.ijse.hardwareManagment.dto.EmployeeDto;
 import lk.ijse.hardwareManagment.dto.SupplierDto;
 import lk.ijse.hardwareManagment.dto.TransportDeto;
 import lk.ijse.hardwareManagment.model.CustomerModel;
-import lk.ijse.hardwareManagment.model.SupplierModel;
+//import lk.ijse.hardwareManagment.model.SupplierModel;
 import lk.ijse.hardwareManagment.model.TransportModel;
 import lk.ijse.hardwareManagment.util.ValidateUtil;
 
@@ -183,19 +183,19 @@ public class TransportFormController  implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        colArera.setCellValueFactory(new PropertyValueFactory<>("T_area"));
-        colId.setCellValueFactory(new PropertyValueFactory<>("T_id"));
-        colTime.setCellValueFactory(new PropertyValueFactory<>("t_time"));
-colDate.setCellValueFactory(new PropertyValueFactory<>("T_Date") );
-colVehicalid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colArera.setCellValueFactory(new PropertyValueFactory<>("Tarea"));
+        colId.setCellValueFactory(new PropertyValueFactory<>("Tid"));
+        colTime.setCellValueFactory(new PropertyValueFactory<>("Ttime"));
+colDate.setCellValueFactory(new PropertyValueFactory<>("date") );
+colVehicalid.setCellValueFactory(new PropertyValueFactory<>("vehicalId"));
         loadTableData();
 
-        Pattern patternId = Pattern.compile("^([0-9]{1,5}$)");
-        Pattern patternarea = Pattern.compile("^([A-z]{3,}$)");  //[0-9 a-z]{10}
-        Pattern patternvehical = Pattern.compile("^([0-9]{1,5}$)");
+        Pattern patternId = Pattern.compile("^([0-9]{5,}$)");
+       ;  //[0-9 a-z]{10}
+        Pattern patternvehical = Pattern.compile("^([0-9]{5,}$)");
 
         map.put(textId, patternId);
-        map.put(txtArea, patternarea);
+
         map.put(txtVehical,patternvehical);
 
     }

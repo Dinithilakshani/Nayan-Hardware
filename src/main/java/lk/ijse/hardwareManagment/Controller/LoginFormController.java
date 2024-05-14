@@ -48,18 +48,26 @@ public class LoginFormController {
         String password = txtPassword.getText();
         String userName = txtUserName.getText();
 
-        UserModel userModel = new UserModel();
-        boolean value = userModel.userCheck(userName, password);
-        if (value == true) {
-            Navigation navigation = new Navigation();
-            navigation.NewWindowsNavigation("Dashboard.fxml");
+        if (userName.equals("") || password.equals("") ) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Enter your password & user name");
 
-            Stage window = (Stage) mainPane.getScene().getWindow();
-            window.close();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Wrong Details..!").show();
+        }else {
+
+            System.out.println("usename"+userName);
+            UserModel userModel = new UserModel();
+            boolean value = userModel.userCheck(userName, password);
+
+            if (value == true) {
+
+                Navigation navigation = new Navigation();
+                navigation.NewWindowsNavigation("Dashboard.fxml");
+
+                Stage window = (Stage) mainPane.getScene().getWindow();
+                window.close();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Wrong Details..!").show();
+            }
         }
-
     }
 
 

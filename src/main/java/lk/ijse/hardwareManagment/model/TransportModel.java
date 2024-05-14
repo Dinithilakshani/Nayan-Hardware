@@ -74,7 +74,6 @@ public class TransportModel {
             PreparedStatement pstm = connection.prepareStatement("INSERT INTO transportdetails VALUES(?, ?, ?, ?,?)");
             pstm.setObject(3, id);
             pstm.setObject(1, area);
-
             pstm.setObject(2, time);
             pstm.setObject(4, vehical);
             pstm.setObject(5, date);

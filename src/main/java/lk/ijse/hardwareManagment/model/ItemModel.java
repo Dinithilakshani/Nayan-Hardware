@@ -74,12 +74,13 @@ public class ItemModel {
 
     public int UpdateItem(ItemDto dto) {
         try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE item SET description = ?, qtyOnHand= ?, unitPrice = ? WHERE code = ?");
+            System.out.println(dto.getCode());
+            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE item SET description = ?, unitPrice= ?, qtyOnHand = ? WHERE code = ?");
 
-            pstm.setObject(1, dto.getCode());
-            pstm.setObject(2, dto.getDesctription());
-            pstm.setObject(4, dto.getQtyOnHeand());
-            pstm.setObject(3, dto.getPrice());
+            pstm.setObject(4, dto.getCode());
+            pstm.setObject(1, dto.getDesctription());
+            pstm.setObject(3, dto.getQtyOnHeand());
+            pstm.setObject(2, dto.getPrice());
             return pstm.executeUpdate();
 
         } catch (SQLException var8) {

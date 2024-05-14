@@ -37,6 +37,7 @@ public class UserModel {
 
     public boolean userCheck(String userName, String password) {
         try {
+            System.out.println("hii"+userName);
             Connection connection = DbConnection.getInstance().getConnection();
             PreparedStatement pstm = connection.prepareStatement("select * from admin where username=? && password=?");
             pstm.setObject(1,userName);

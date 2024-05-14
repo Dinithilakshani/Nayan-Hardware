@@ -156,7 +156,7 @@ public class EmployeeFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colNumber.setCellValueFactory(new PropertyValueFactory<>("contactnumber"));
-        colId.setCellValueFactory(new PropertyValueFactory<>("eid"));
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colAdresss.setCellValueFactory(new PropertyValueFactory<>("address"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
 

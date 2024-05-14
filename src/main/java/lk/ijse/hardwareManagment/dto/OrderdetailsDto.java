@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 
 public class OrderdetailsDto {
+    private String orderId;
     private String code;
     private String description;
     private double Price;

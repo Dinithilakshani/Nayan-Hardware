@@ -59,8 +59,9 @@ imeladdress varchar (35)
 create table Supplierdetails(
 SID VARCHAR (10),
  code VARCHAR(6),
-catagory varchar (20),
+price varchar (20),
 description varchar (29),
+    qtyonHenad varchar (30),
  foreign key (SID) references Supplier (SID),
 foreign key (code) references item (code)
 );
@@ -87,7 +88,7 @@ create table Transportdetails(
                                  T_area varchar (17),
                                  t_time varchar (10),
                                  T_id varchar (15),
-                                 id VARCHAR (6) unique key,
+                                 id VARCHAR (6) primary key ,
                                  T_Date date,
                                  foreign key (T_id) references Transport(T_id),
                                  foreign key (id) references orders(id)

@@ -42,19 +42,23 @@ public class OrderModel {
 
 
 
-    public boolean saveOrder(String orderId, String date, String customerId, String customerEmail, Double
+    public boolean saveOrder(String orderId, String date, String customerId, String email, Double
             amount, ObservableList<OrderdetailsDto> observableList) throws SQLException {
         Connection connection = null;
         try {
             connection = DbConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
-
-            boolean saveOrder = save(new OrderDto(orderId, customerId, customerEmail, date));
+            System.out.println("lala");
+            boolean saveOrder = save(new OrderDto(orderId, date,customerId, email));
+            System.out.println(saveOrder);
             if (saveOrder == true) {
+                System.out.println("hi");
 
                 boolean saveOrderDetails = orderdetailsSave(orderId, observableList);
                 if (saveOrderDetails == true) {
+                    System.out.println("hi2");
                     boolean b = updateItemQty(observableList);
+
                     if (b == true) {
                         connection.commit();
                         return true;
@@ -74,7 +78,8 @@ public class OrderModel {
         for (OrderdetailsDto dto : observableList) {
             ItemModel itemModel = new ItemModel();
             ItemDto itemDto = itemModel.searchItem(dto.getCode());
-            int b = itemModel.UpdateItem(new ItemDto(dto.getCode(), dto.getDescription(), dto.getQty(),dto.getPrice()));
+            int b = itemModel.UpdateItem(new ItemDto(dto.getCode(), dto.getDescription(),itemDto.getQtyOnHeand()- dto.getQty(),dto.getPrice()));
+            System.out.println(b);
             if (0<b) {
                 return false;
             }
@@ -89,9 +94,10 @@ public class OrderModel {
             PreparedStatement pstm = connection.prepareStatement("insert into order_detail values(?,?,?,?,?)");
             pstm.setObject(1, orderId);
             pstm.setObject(2, dto.getDescription());
-            pstm.setObject(3,dto.getPrice());
+            pstm.setObject(4,dto.getPrice());
 
             pstm.setObject(3, dto.getQty());
+            pstm.setObject(5,dto.getAmount());
             boolean b = pstm.executeUpdate() > 0;
             if (!b) {
                 return false;

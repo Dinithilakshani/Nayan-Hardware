@@ -6,18 +6,16 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @AllArgsConstructor
-@ToString
 @Data
+@ToString
 @NoArgsConstructor
-public class SupplierDto {
 
-    private String SupplierCompany;
-    private String EmailAddress;
-    private String Number;
-    private String description;
-    private int price;
+public class SupplierDetailsDto {
 
-
-
+   private String SupplierCompany;
+   private  String itemcode;
+   private double price;
+   private String Description;
+   private int qtyonhandsupplier;
 
 }
