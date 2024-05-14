@@ -1,9 +1,6 @@
 package lk.ijse.hardwareManagment.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @ToString
 @Data
@@ -11,20 +8,15 @@ import lombok.ToString;
 @NoArgsConstructor
 
 public class OrderdetailsDto {
+    private String code;
+    private String description;
+    private double Price;
+    private int qty;
+    private double amount;
 
 
 
+}
 
-
-
-        private String orderId;
-
-        private String description;
-        private int unitPrice;
-        private int QtyOnHand;
-        private  int qty;
-        private double amount;
-
-    }
 
 

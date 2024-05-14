@@ -45,13 +45,25 @@ public class CustomerModel {
             return customerDto;
         }
 
+    public static boolean updatecustomer(CustomerDto customerDto) throws SQLException {
+        String sql = "update Customer  name = ?,address = ?,email = ? , contactnumber = ? where id =?";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
+        pstm.setObject(2,customerDto.getName());
+        pstm.setObject(1,customerDto.getId());
+        pstm.setObject(4,customerDto.getEmail());
+        pstm.setObject(5,customerDto.getContact());
+        pstm.setObject(3,customerDto.getAddress());
+
+        return pstm.executeUpdate() > 0;
+    }
+
 
 
 
     public int saveCustomer(String id, String name, String address, String tel, String email) {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
-            PreparedStatement pstm = connection.prepareStatement("INSERT INTO Customer VALUES(?, ?, ?, ?,?)");
+            PreparedStatement pstm = connection.prepareStatement("INSERT INTO customer VALUES(?, ?, ?, ?,?)");
             pstm.setObject(1, id);
             pstm.setObject(2, name);
             pstm.setObject(3, address);
@@ -65,27 +77,15 @@ throw new RuntimeException();
 
     }
 
-    public int updateCustomer(String eid, String name, String address, String contactnumber, String email) {
-        try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE Customer SET name = ?, address = ?,email = ? , contactnumber = ? WHERE id = ?");
-            pstm.setObject(2, name);
-            pstm.setObject(3, address);
-            pstm.setObject(4, contactnumber);
-            pstm.setObject(1, eid);
-            pstm.setObject(5,email);
-             return pstm.executeUpdate();
-
-        } catch (SQLException var8) {
-    throw new RuntimeException();
-            }
 
 
 
-        }
+
+
 
     public int deleteCustomer(String id) {
         try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM Customer WHERE id = ?");
+            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM customer WHERE id = ?");
             pstm.setObject(1, id);
 return pstm.executeUpdate();
 
@@ -108,11 +108,11 @@ return pstm.executeUpdate();
 
 
                 CustomerDto customerDto = new CustomerDto(
-                        resultSet.getString(2),
                         resultSet.getString(1),
+                        resultSet.getString(2),
                         resultSet.getString(3),
-                        resultSet.getString(5),
-                        resultSet.getString(4)
+                        resultSet.getString(4),
+                        resultSet.getString(5)
 
 
                 );
@@ -129,7 +129,52 @@ return pstm.executeUpdate();
     }
 
 
+    public ArrayList<String> getallEmail() {
+        ArrayList<String> allEmail = new ArrayList<>();
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            PreparedStatement pstm = connection.prepareStatement("select email from customer");
+            ResultSet resultSet = pstm.executeQuery();
+
+            while (resultSet.next()) {
+                allEmail.add(String.valueOf(resultSet.getString(1)));
+            }
+            return allEmail;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+    public CustomerDto searchCustomer(String email ) throws SQLException {
+        String sql = "SELECT * FROM customer WHERE  email=?";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        pstm.setObject(1, email);
+        ResultSet resultSet = pstm.executeQuery();
+
+        CustomerDto customerDto = null;
+
+
+        if (resultSet.next()) {
+            String customerId = resultSet.getString(2);
+            String customerName = resultSet.getString(1);
+            String contact = resultSet.getString(4);
+            String customerAddress = resultSet.getString(3);
+            String customerEmail = resultSet.getString(5);
+
+
+            customerDto = new CustomerDto(customerId, customerName, contact, customerAddress, customerEmail);
+        }
+        return customerDto;
+
+
+    }
 }
+
 
 
 

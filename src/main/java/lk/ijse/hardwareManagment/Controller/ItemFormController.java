@@ -127,17 +127,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
-import lk.ijse.hardwareManagment.db.DbConnection;
-import lk.ijse.hardwareManagment.dto.CustomerDto;
-import lk.ijse.hardwareManagment.dto.EmployeeDto;
 import lk.ijse.hardwareManagment.dto.ItemDto;
 import lk.ijse.hardwareManagment.model.ItemModel;
 import lk.ijse.hardwareManagment.util.ValidateUtil;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -170,7 +164,6 @@ public class ItemFormController implements Initializable {
     @FXML
     private TableColumn<?, ?> colPrice;
 
-
     @FXML
     private TableView<ItemDto> tblItem;
 
@@ -187,6 +180,29 @@ public class ItemFormController implements Initializable {
     private TextField txtQty;
 
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap();
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
+
+        loadTableData();
+
+        Pattern patternId = Pattern.compile("^(I0)[0-9]{1,5}$");
+
+        Pattern patterqty = Pattern.compile("^{100}$");
+
+        map.put(txtCode, patternId);
+
+        map.put(txtQty,patterqty);
+    }
+    private void loadTableData() {
+        ItemModel itemModel = new ItemModel();
+        ArrayList<ItemDto> item = itemModel.tble();
+        tblItem.setItems(FXCollections.observableList(item));
+    }
 
     @FXML
     void btnClearOnACtion(ActionEvent event) {
@@ -224,12 +240,11 @@ public class ItemFormController implements Initializable {
     void btnSaveOnAction(ActionEvent event) {
         String code = this.txtCode.getText();
         String description = this.txtDescription.getText();
-        String qty = this.txtQty.getText();
-        String price = this.txtPrice.getText();
-        String sql = "INSERT INTO item VALUES(?, ?, ?, ?)";
+        int qtyOnHeand = Integer.parseInt(this.txtQty.getText());
+        double price = Double.parseDouble(this.txtPrice.getText());
 
         ItemModel itemModel = new ItemModel();
-        int i = itemModel.SaveItem(code,description,qty,price);
+        int i = itemModel.SaveItem(code,description,qtyOnHeand,price);
 
         if(i>0){
             new Alert(Alert.AlertType.CONFIRMATION,"Save Item").show();
@@ -240,18 +255,14 @@ public class ItemFormController implements Initializable {
     }
 
 
-
-
-
     @FXML
     void btnUpdateOnACtion(ActionEvent event) {
         String code = this.txtCode.getText();
         String description = this.txtDescription.getText();
-        String qty = this.txtQty.getText();
-        String price = this.txtPrice.getText();
-        String sql = "UPDATE item SET description = ?, qtyOnHand= ?, unitPrice = ? WHERE code = ?";
+        int qty = Integer.parseInt(this.txtQty.getText());
+        double  price = Double.parseDouble(this.txtPrice.getText());
         ItemModel itemModel = new ItemModel();
-        int i = itemModel.UpdateItem(code, description, qty, price);
+        int i = itemModel.UpdateItem(new ItemDto(code,description,qty,price));
 
         if (i > 0) {
             new Alert(Alert.AlertType.CONFIRMATION, "Update Item").show();
@@ -271,8 +282,8 @@ public class ItemFormController implements Initializable {
                 if (itemDto != null) {
                     txtCode.setText(itemDto.getCode());
                     txtDescription.setText(itemDto.getDesctription());
-                    txtPrice.setText(itemDto.getPrice());
-                    txtQty.setText(itemDto.getQtyon());
+                    txtPrice.setText(String.valueOf(itemDto.getPrice()));
+                    txtQty.setText(String.valueOf(itemDto.getQtyOnHeand()));
 
                 }
             } catch (SQLException e) {
@@ -289,41 +300,9 @@ public class ItemFormController implements Initializable {
 
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
-        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        colPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-        colQty.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
-
-        loadTableData();
-
-        Pattern patternId = Pattern.compile("^(C0)[0-9]{1,5}$");
-        Pattern patterndescription = Pattern.compile("^[A-z]{3,}$");
-        Pattern patterqty = Pattern.compile("^{1,}$");
-
-        map.put(txtCode, patternId);
-        map.put(txtDescription, patterndescription);
-        map.put(txtQty,patterqty);
-
-
-    }
-
-    private void loadTableData() {
-        ItemModel itemModel = new ItemModel();
-        ArrayList<ItemDto> data = itemModel.tble();
-        tblItem.setItems(FXCollections.observableList(data));
-    }
 
     public void txtOnKeyRelesed(KeyEvent keyEvent) {
         ValidateUtil.validation(map);
 
     }
 }
-
-
-
-
-
-
-

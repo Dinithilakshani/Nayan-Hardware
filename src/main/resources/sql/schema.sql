@@ -27,7 +27,7 @@ CREATE TABLE item(
                      code VARCHAR(6) PRIMARY KEY,
                      description VARCHAR(50) unique key,
                      unitPrice varchar(10),
-                     qty varchar(5)
+                     qtyOnHand varchar(5)
 
 );
 
@@ -35,8 +35,7 @@ CREATE TABLE order_detail
 (
     orderId     VARCHAR(6),
     description VARCHAR(50) unique key,
-        qtyOnHand varchar (11),
-    qty varchar (10),
+    qty int (10),
     unitprice int (20),
 
     amount      varchar(20),

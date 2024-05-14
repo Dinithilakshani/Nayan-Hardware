@@ -1,10 +1,7 @@
 package lk.ijse.hardwareManagment.model;
 
-import javafx.collections.FXCollections;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import lk.ijse.hardwareManagment.db.DbConnection;
-import lk.ijse.hardwareManagment.dto.CustomerDto;
+import lk.ijse.hardwareManagment.dto.EmployeeDto;
 import lk.ijse.hardwareManagment.dto.ItemDto;
 import lk.ijse.hardwareManagment.tm.ItemTm;
 
@@ -14,8 +11,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+
+
 public class ItemModel {
 
+
+    private Object code;
+    private Object qty;
+    private Object price;
+    private Object descriptions;
 
     public static ItemDto searchById(String description) throws SQLException, ClassNotFoundException {
 
@@ -31,8 +35,8 @@ public class ItemModel {
         if (resultSet.next()) {
             String code = resultSet.getString(1);
             String descriptions = resultSet.getString(2);
-            String qty = resultSet.getString(4);
-            String price = resultSet.getString(3);
+            int qty = resultSet.getInt(4);
+            double price = resultSet.getDouble(3);
 
             itemDto = new ItemDto(code, descriptions, qty, price);
         }
@@ -53,13 +57,13 @@ public class ItemModel {
         }
     }
 
-    public int SaveItem(String code, String description, String qty, String price) {
+    public int SaveItem(String code, String description, int qtyOnHeand, double price) {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
             PreparedStatement pstm = connection.prepareStatement("INSERT INTO item VALUES(?, ?, ?, ?)");
             pstm.setObject(1, code);
             pstm.setObject(2, description);
-            pstm.setObject(4, qty);
+            pstm.setObject(4, qtyOnHeand);
             pstm.setObject(3, price);
             return pstm.executeUpdate();
 
@@ -68,13 +72,14 @@ public class ItemModel {
         }
     }
 
-    public int UpdateItem(String code, String description, String qty, String price) {
+    public int UpdateItem(ItemDto dto) {
         try {
             PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE item SET description = ?, qtyOnHand= ?, unitPrice = ? WHERE code = ?");
-            pstm.setObject(1, code);
-            pstm.setObject(2, description);
-            pstm.setObject(4, qty);
-            pstm.setObject(3, price);
+
+            pstm.setObject(1, dto.getCode());
+            pstm.setObject(2, dto.getDesctription());
+            pstm.setObject(4, dto.getQtyOnHeand());
+            pstm.setObject(3, dto.getPrice());
             return pstm.executeUpdate();
 
         } catch (SQLException var8) {
@@ -82,35 +87,108 @@ public class ItemModel {
         }
 
 
-    }
 
 
-    public ArrayList<ItemDto> tble() {
+
+
+
+    } public ArrayList<ItemDto> tble() {
         ArrayList<ItemDto> item = new ArrayList<>();
+
         try {
             Connection connection = DbConnection.getInstance().getConnection();
             PreparedStatement pstm = connection.prepareStatement("select * from item");
             ResultSet resultSet = pstm.executeQuery();
-            ItemDto itemDto;
             while (resultSet.next()) {
 
-                itemDto = new ItemDto(
+                ItemDto itemDto = new ItemDto(
                         resultSet.getString(1),
                         resultSet.getString(2),
-                        resultSet.getString(4),
-                        resultSet.getString(3)
-                );
-            }
+                        resultSet.getInt(4),
+                        resultSet.getDouble(3)
 
+                );
+                item.add(itemDto);
+
+            }
             return item;
 
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+
+
+
+    public ItemDto searchItem(String code) throws SQLException {
+        String sql = "SELECT * FROM item WHERE  code=?";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        pstm.setObject(1,code);
+        ResultSet resultSet = pstm.executeQuery();
+
+        ItemDto itemDto = null;
+
+
+
+
+
+        if (resultSet.next()) {
+            String codes = resultSet.getString(2);
+            String descrption = resultSet.getString(1);
+            int qtyOnHenad = resultSet.getInt(4);
+            double price = resultSet.getDouble(3);
+
+
+            itemDto  = new ItemDto( codes, descrption, qtyOnHenad,price);
+        }
+        return itemDto;
+    }
+
+
+
+
+    public ArrayList<ItemDto> getAll() {
+        ArrayList<ItemDto> allData = new ArrayList<ItemDto>();
+
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            PreparedStatement pstm = connection.prepareStatement("SELECT * FROM item");
+            ResultSet resultSet = pstm.executeQuery();
+
+            while (resultSet.next()) {
+                        new ItemDto(
+                                resultSet.getString(1),
+                                resultSet.getString(2),
+                                resultSet.getInt(3),
+                                resultSet.getDouble(4)
+
+
+                );
+
+            }
+            return allData;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
 
+
+
+
+
+    // public boolean UpdateItem(ItemDto itemDto) {
+
+
+
+
 }
+
+
 
 
 

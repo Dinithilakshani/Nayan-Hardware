@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,41 +15,20 @@
             <Image url="@../assets/kk.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="136.0" layoutX="392.0" layoutY="68.0" stroke="BLACK" strokeType="INSIDE" width="171.0" />
-      <Text fill="#302a2a" layoutX="413.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer count">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="192.0" layoutX="28.0" layoutY="584.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
+      <Text fill="#302a2a" layoutX="81.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer count">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="781.0" layoutX="596.0" layoutY="8.0" stroke="#718093" strokeType="INSIDE" width="427.0" />
-      <TextArea layoutX="625.0" layoutY="39.0" prefHeight="734.0" prefWidth="378.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="514.0" layoutX="19.0" layoutY="255.0" stroke="BLACK" strokeType="INSIDE" width="549.0" />
-      <Text layoutX="721.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valuation">
-         <font>
-            <Font size="32.0" />
-         </font>
-      </Text>
-      <StackedBarChart layoutX="35.0" layoutY="328.0" prefHeight="426.0" prefWidth="492.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </StackedBarChart>
-      <Text layoutX="129.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available stock">
-         <font>
-            <Font size="32.0" />
-         </font>
-      </Text>
-      <Label fx:id="lblCustomerCount" alignment="CENTER" contentDisplay="CENTER" layoutX="404.0" layoutY="82.0" prefHeight="107.0" prefWidth="146.0" style="-fx-background-color: white; -fx-background-radius: 30;" textOverrun="CENTER_ELLIPSIS">
+      <Label fx:id="lblCustomerCount" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="596.0" prefHeight="168.0" prefWidth="190.0" style="-fx-background-color: white; -fx-background-radius: 30;" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="timeLebal" layoutX="2.0" prefHeight="114.0" prefWidth="481.0" text="Label" textFill="#3b1f89">
+      <Label fx:id="timeLebal" layoutX="8.0" prefHeight="471.0" prefWidth="1142.0" text="Label" textFill="#3b1f89">
          <font>
-            <Font size="32.0" />
+            <Font size="86.0" />
          </font></Label>
    </children>
 </AnchorPane>

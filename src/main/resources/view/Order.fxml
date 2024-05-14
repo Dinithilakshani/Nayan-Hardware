@@ -25,17 +25,17 @@
             <Font size="28.0" />
          </font>
       </Text>
-      <Text fill="#f2eded" layoutX="177.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="description">
+      <Text fill="#f2eded" layoutX="187.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="description">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fill="#f2eded" layoutX="339.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="qyt">
+      <Text fill="#f2eded" layoutX="350.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="qyt">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fill="#f2eded" layoutX="455.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QtyOnHeand">
+      <Text fill="#f2eded" layoutX="685.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QtyOnHeand">
          <font>
             <Font size="15.0" />
          </font>
@@ -49,21 +49,20 @@
         <columns>
           <TableColumn fx:id="ColOrderId" prefWidth="119.99999618530273" text="OrderId" />
           <TableColumn fx:id="colDescription" prefWidth="136.80006408691406" text="Description" />
-            <TableColumn fx:id="colOrderdate" prefWidth="174.39996337890625" text="Order  Date" />
             <TableColumn fx:id="colqty" minWidth="0.0" prefWidth="107.20001220703125" text="qty" />
             <TableColumn fx:id="colUnitprice" minWidth="0.0" prefWidth="104.0" text="Unit Price" />
-            <TableColumn fx:id="ColAmount" minWidth="0.0" prefWidth="83.199951171875" text="Amount" />
-            <TableColumn fx:id="ColAction" minWidth="0.0" prefWidth="91.2000732421875" text="Action" />
+            <TableColumn fx:id="ColAmount" minWidth="0.0" prefWidth="172.800048828125" text="Amount" />
+            <TableColumn fx:id="ColAction" minWidth="0.0" prefWidth="176.79998779296875" text="Action" />
         </columns>
       </TableView>
-      <TextField fx:id="txtUnitprice" layoutX="673.0" layoutY="358.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="26.0" prefWidth="98.0" style="-fx-alignment: white; -fx-background-radius: ;" />
-      <TextField fx:id="txtQtyONHENAD" layoutX="469.0" layoutY="358.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="26.0" prefWidth="98.0" style="-fx-alignment: white;" />
-      <Text fill="#fcf4f4" layoutX="9.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OrderId">
+      <TextField fx:id="txtQtyONHENAD" layoutX="693.0" layoutY="358.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="26.0" prefWidth="98.0" style="-fx-alignment: white; -fx-background-radius:8px;" />
+      <TextField fx:id="txtUnitprice" layoutX="526.0" layoutY="358.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="26.0" prefWidth="98.0" style="-fx-alignment: white;" />
+      <Text fill="#fcf4f4" layoutX="9.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ItemCode">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <TextField fx:id="txtDescription" layoutX="173.0" layoutY="358.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="26.0" prefWidth="118.0" style="-fx-alignment: white;" />
+      <TextField fx:id="txtDescription" layoutX="186.0" layoutY="358.0" onAction="#txtDescriptionOnAction" onKeyReleased="#txtOnKeyRelesed" prefHeight="26.0" prefWidth="118.0" style="-fx-alignment: white;" />
       <Button fx:id="btnAddtoCard" layoutX="788.0" layoutY="417.0" mnemonicParsing="false" onAction="#btnAddtoCardOnACtion" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #718093;" text="Add to Card" textFill="#e7d3d3">
          <font>
             <Font size="13.0" />
@@ -87,18 +86,18 @@
          </font>
       </Text>
       <TextField fx:id="txtNetPrice" layoutX="111.0" layoutY="759.0" />
-      <Text fill="#efe8e8" layoutX="663.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UnitPrice">
+      <Text fill="#efe8e8" layoutX="526.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UnitPrice">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <TextField fx:id="txtQtY" layoutX="311.0" layoutY="358.0" prefHeight="26.0" prefWidth="98.0" />
+      <TextField fx:id="txtQtY" layoutX="350.0" layoutY="358.0" prefHeight="26.0" prefWidth="98.0" />
       <Text fill="#ece3e3" layoutX="56.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Id">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Text fill="#f4e8e8" layoutX="459.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Date">
+      <Text fill="#f4e8e8" layoutX="459.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Date">
          <font>
             <Font size="16.0" />
          </font>
@@ -114,6 +113,6 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <ComboBox fx:id="ComItemcode" layoutX="14.0" layoutY="358.0" onAction="#comitemcodeOnACtion" prefHeight="26.0" prefWidth="118.0" />
+      <TextField fx:id="txtItemcode" layoutX="15.0" layoutY="358.0" prefHeight="26.0" prefWidth="118.0" />
    </children>
 </AnchorPane>

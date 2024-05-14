@@ -1,17 +1,21 @@
-package lk.ijse.hardwareManagment.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import lk.ijse.hardwareManagment.model.User;
 import lk.ijse.hardwareManagment.repository.UserRepo;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class SignInFormController implements Initializable {
 
@@ -56,3 +60,5 @@ public class SignInFormController implements Initializable {
         txtPassword.clear();
     }
 }
+
+

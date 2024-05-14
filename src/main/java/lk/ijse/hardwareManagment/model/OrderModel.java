@@ -2,7 +2,6 @@ package lk.ijse.hardwareManagment.model;
 
 import javafx.collections.ObservableList;
 import lk.ijse.hardwareManagment.db.DbConnection;
-import lk.ijse.hardwareManagment.dto.CustomerDto;
 import lk.ijse.hardwareManagment.dto.ItemDto;
 import lk.ijse.hardwareManagment.dto.OrderDto;
 import lk.ijse.hardwareManagment.dto.OrderdetailsDto;
@@ -11,116 +10,40 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class OrderModel {
-    public static int deleteCustomer(String orderid) {
-        try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM Customer WHERE id = ?");
-            pstm.setObject(1, orderid);
-            return pstm.executeUpdate();
 
-        } catch (SQLException var5) {
-            throw new RuntimeException();
-
-        }
-    }
-
-    public static OrderDto searchById(String email) throws SQLException {
-        String sql = "SELECT * FROM order_detail WHERE  email=?";
+    public static ItemDto Searchbydescription(String description) throws SQLException {
+        String sql = "SELECT * FROM item WHERE  description=?";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1, email);
+        pstm.setObject(1,description);
         ResultSet resultSet = pstm.executeQuery();
 
-        OrderDto orderDto = null;
+        ItemDto itemDto = null;
+
+
 
 
         if (resultSet.next()) {
-            String OrderId = resultSet.getString(1);
-            String description = resultSet.getString(2);
-            String qty = resultSet.getString(3);
-            String amount = resultSet.getString(4);
-            String emails = resultSet.getString(5);
+            String code = resultSet.getString(1);
+            String descriptions = resultSet.getString(2);
+            int QtyOnHeand = resultSet.getInt(4);
+            double unitPrice = resultSet.getDouble(3);
 
 
-            orderDto = new OrderDto(OrderId, description, qty, amount, emails);
+            itemDto  = new ItemDto( code,descriptions,QtyOnHeand,unitPrice);
         }
-        return orderDto;
+        return itemDto;
     }
 
 
-    public int saveCustomer(String amount, String qty, String payment, String description, String email, String orderId) {
-        try {
-            Connection connection = DbConnection.getInstance().getConnection();
-            PreparedStatement pstm = connection.prepareStatement("INSERT INTO order_detail VALUES(?, ?, ?, ?,?)");
-            pstm.setObject(1, orderId);
-            pstm.setObject(2, description);
-            pstm.setObject(3, qty);
-            pstm.setObject(4, amount);
-            pstm.setObject(5, email);
 
-
-            return pstm.executeUpdate();
-
-        } catch (SQLException var10) {
-            throw new RuntimeException();
-        }
-
-    }
-
-    public int updateorder(String orderId, String description, String qty, String amount, String email) {
-        try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE order_detail SET email  = ?, description = ?,qtyOnHand = ? , amount = ? WHERE orderId = ?");
-            pstm.setObject(1, orderId);
-            pstm.setObject(2, description);
-            pstm.setObject(3, qty);
-            pstm.setObject(4, amount);
-            pstm.setObject(5, email);
-            return pstm.executeUpdate();
-
-        } catch (SQLException var8) {
-            throw new RuntimeException();
-        }
-
-
-    }
-
-    public ArrayList<OrderDto> tble() {
-        ArrayList<OrderDto> Order = new ArrayList<>();
-
-
-        try {
-            Connection connection = DbConnection.getInstance().getConnection();
-            PreparedStatement pstm = connection.prepareStatement("select * from order_detail");
-            ResultSet resultSet = pstm.executeQuery();
-            while (resultSet.next()) {
-
-
-                CustomerDto customerDto = new CustomerDto(
-                        resultSet.getString(1),
-                        resultSet.getString(2),
-                        resultSet.getString(3),
-                        resultSet.getString(4),
-                        resultSet.getString(5)
-
-
-                );
-                Order.add(new OrderDto());
-
-
-            }
-            return Order;
-
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
-        }
-    }
 
     public boolean saveOrder(String orderId, String date, String customerId, String customerEmail, Double
-            total, ObservableList<OrderdetailsDto> observableList) throws SQLException {
+            amount, ObservableList<OrderdetailsDto> observableList) throws SQLException {
         Connection connection = null;
         try {
             connection = DbConnection.getInstance().getConnection();
@@ -147,12 +70,12 @@ public class OrderModel {
         }
     }
 
-    private boolean updateItemQty(ObservableList<OrderdetailsDto> observableList) {
+    private boolean updateItemQty(ObservableList<OrderdetailsDto> observableList) throws SQLException {
         for (OrderdetailsDto dto : observableList) {
             ItemModel itemModel = new ItemModel();
-            ItemDto itemDto = itemModel.searchItem(dto.getcode());
-            boolean b = itemModel.UpdateItem(new ItemDto(dto.ge(), dto.getDescription(), dto.g(), itemDto.getQty() - dto.getQty()));
-            if (!b) {
+            ItemDto itemDto = itemModel.searchItem(dto.getCode());
+            int b = itemModel.UpdateItem(new ItemDto(dto.getCode(), dto.getDescription(), dto.getQty(),dto.getPrice()));
+            if (0<b) {
                 return false;
             }
         }
@@ -166,9 +89,9 @@ public class OrderModel {
             PreparedStatement pstm = connection.prepareStatement("insert into order_detail values(?,?,?,?,?)");
             pstm.setObject(1, orderId);
             pstm.setObject(2, dto.getDescription());
-            pstm.setObject(3, dto.getQtyOnHand());
-            pstm.setObject(4, dto.getQty());
-            pstm.setObject(5,dto.getAmount());
+            pstm.setObject(3,dto.getPrice());
+
+            pstm.setObject(3, dto.getQty());
             boolean b = pstm.executeUpdate() > 0;
             if (!b) {
                 return false;
@@ -186,8 +109,9 @@ public class OrderModel {
         pstm.setObject(4, orderDto.getEmail());
         return pstm.executeUpdate() > 0;
     }
+    }
 
-}
+
 
 
 

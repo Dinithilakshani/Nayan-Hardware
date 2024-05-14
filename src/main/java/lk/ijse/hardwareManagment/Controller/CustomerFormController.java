@@ -136,23 +136,27 @@ public class CustomerFormController implements Initializable {
 
 
     @FXML
-    void btnUpdateOnAction(ActionEvent event) {
+    void btnUpdateOnAction(ActionEvent event) throws SQLException {
+
         String eid = this.txtId.getText();
         String name = this.txtName.getText();
         String address = this.txtAddress.getText();
         String contactnumber = this.txtNumber.getText();
         String email = this.txtEmail.getText();
 
-        CustomerModel customerModel = new CustomerModel();
-        int i = customerModel.updateCustomer(eid, name, address, contactnumber, email);
 
-        if (i < 0) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Update Customeer").show();
-
-        } else {
-            new Alert(Alert.AlertType.ERROR, " Somthing Error").show();
+        CustomerDto customerDto = new CustomerDto(eid,name,address,contactnumber,email);
+        boolean isUpdated = CustomerModel.updatecustomer(customerDto);
+        if (isUpdated) {
+            new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
         }
     }
+
+
+
+
+
+
 
 
     @Override
@@ -167,16 +171,15 @@ public class CustomerFormController implements Initializable {
         loadTableData();
 
         Pattern patternId = Pattern.compile("^(C0)[0-9]{1,5}$");
-        Pattern patternName = Pattern.compile("^[A-z]{3,}$");  //[0-9 a-z]{10}
-        Pattern patternAddress = Pattern.compile("^[A-z]{3,}$");
-        Pattern patternEmail = Pattern.compile("^[A-z][1-9]{5,}$");
-        Pattern patternnumber = Pattern.compile("^(1,9),{10,}$");
+
+
+
+        Pattern patternnumber = Pattern.compile("^(1,9),{10}$");
 
 
         map.put(txtId, patternId);
-        map.put(txtName, patternName);
-        map.put(txtAddress, patternAddress);
-        map.put(txtEmail,patternEmail);
+
+
         map.put(txtNumber,patternnumber);
 
 

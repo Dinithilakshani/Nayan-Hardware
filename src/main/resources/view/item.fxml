@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="748.0" prefWidth="1064.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hardwareManagment.Controller.ItemFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="748.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hardwareManagment.Controller.ItemFormController">
    <children>
-      <ImageView fitHeight="755.0" fitWidth="1064.0" layoutX="-3.0" pickOnBounds="true">
+      <ImageView fitHeight="755.0" fitWidth="956.0" layoutX="-3.0" pickOnBounds="true">
          <image>
             <Image url="@../assets/lala.jpg" />
          </image>
@@ -40,46 +40,46 @@
       <TextField fx:id="txtCode" layoutX="182.0" layoutY="166.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="270.0" style="-fx-background-color: white; -fx-background-radius: 20;" />
       <TextField fx:id="txtDescription" layoutX="182.0" layoutY="252.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="270.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
       <TextField fx:id="txtQty" layoutX="556.0" layoutY="179.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="270.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
-      <Button fx:id="btnClear" layoutX="862.0" layoutY="362.0" mnemonicParsing="false" onAction="#btnClearOnACtion" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Clear" textFill="#fcf8f8">
+      <Button fx:id="btnClear" layoutX="813.0" layoutY="362.0" mnemonicParsing="false" onAction="#btnClearOnACtion" prefHeight="50.0" prefWidth="118.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Clear">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="btnUpdate" layoutX="863.0" layoutY="206.0" mnemonicParsing="false" onAction="#btnUpdateOnACtion" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="update" textFill="#d1c8c8">
+      <Button fx:id="btnUpdate" layoutX="813.0" layoutY="206.0" mnemonicParsing="false" onAction="#btnUpdateOnACtion" prefHeight="50.0" prefWidth="118.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="update">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="btnSave" layoutX="863.0" layoutY="132.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="50.0" prefWidth="129.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Save" textFill="#dcd2d2">
+      <Button fx:id="btnSave" layoutX="813.0" layoutY="125.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="50.0" prefWidth="118.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Save">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="btnDelete" layoutX="862.0" layoutY="282.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Delete" textFill="#f4f1f1">
+      <Button fx:id="btnDelete" layoutX="813.0" layoutY="279.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="50.0" prefWidth="118.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Delete">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <TableView fx:id="tblItem" layoutX="47.0" layoutY="433.0" prefHeight="288.0" prefWidth="950.0">
+      <TableView fx:id="tblItem" layoutX="18.0" layoutY="421.0" prefHeight="307.0" prefWidth="870.0">
          <columns>
-            <TableColumn fx:id="colCode" prefWidth="261.6000175476074" text="Item code" />
-            <TableColumn fx:id="colDescription" prefWidth="228.0" text="Description" />
-            <TableColumn fx:id="colQty" prefWidth="210.39996337890625" text="QtyOnHand" />
-            <TableColumn fx:id="colPrice" prefWidth="296.800048828125" text="UnitPrice" />
+            <TableColumn fx:id="colCode" prefWidth="163.2000274658203" text="Item code" />
+            <TableColumn fx:id="colDescription" prefWidth="236.79998779296875" text="Description" />
+            <TableColumn fx:id="colQty" prefWidth="147.199951171875" text="QtyOnHand" />
+            <TableColumn fx:id="colPrice" prefWidth="147.199951171875" text="UnitPrice" />
          </columns>
       </TableView>
-      <ImageView fitHeight="20.0" fitWidth="40.0" layoutX="868.0" layoutY="367.0">
+      <ImageView fitHeight="20.0" fitWidth="40.0" layoutX="806.0" layoutY="377.0">
          <image>
             <Image url="@../assets/broom.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="14.0" fitWidth="28.0" layoutX="874.0" layoutY="150.0">
+      <ImageView fitHeight="14.0" fitWidth="28.0" layoutX="815.0" layoutY="143.0">
          <image>
             <Image url="@../assets/download.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="22.0" layoutX="877.0" layoutY="218.0">
+      <ImageView fitHeight="26.0" fitWidth="22.0" layoutX="829.0" layoutY="218.0">
          <image>
             <Image url="@../assets/refresh.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="22.0" layoutX="877.0" layoutY="297.0">
+      <ImageView fitHeight="20.0" fitWidth="22.0" layoutX="818.0" layoutY="297.0">
          <image>
             <Image url="@../assets/bin.png" />
          </image>

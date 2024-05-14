@@ -62,7 +62,6 @@ public class DashboardFormController implements Initializable {
     @FXML
     void btnItemOnAction(ActionEvent event) {
         setUi("item");
-
     }
 
     @FXML

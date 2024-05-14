@@ -178,7 +178,6 @@ public class EmployeeFormController implements Initializable {
     }
 
     private void loadTableData() {
-
         EmployeeModel employeeModel = new EmployeeModel();
         ArrayList<EmployeeDto> data = employeeModel.tble();
         tblEmployee.setItems(FXCollections.observableList(data));
@@ -212,12 +211,3 @@ public class EmployeeFormController implements Initializable {
 
     }
 }
-
-
-
-
-
-
-
-
-
