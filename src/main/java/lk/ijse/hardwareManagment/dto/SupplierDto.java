@@ -15,7 +15,7 @@ public class SupplierDto {
     private String EmailAddress;
     private String Number;
     private String description;
-    private int price;
+
 
 
 

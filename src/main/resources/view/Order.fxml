@@ -63,9 +63,9 @@
          </font>
       </Text>
       <TextField fx:id="txtDescription" layoutX="186.0" layoutY="358.0" onAction="#txtDescriptionOnAction" onKeyReleased="#txtOnKeyRelesed" prefHeight="26.0" prefWidth="118.0" style="-fx-alignment: white;" />
-      <Button fx:id="btnAddtoCard" layoutX="788.0" layoutY="417.0" mnemonicParsing="false" onAction="#btnAddtoCardOnACtion" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #718093;" text="Add to Card" textFill="#e7d3d3">
+      <Button fx:id="btnAddtoCard" layoutX="705.0" layoutY="417.0" mnemonicParsing="false" onAction="#btnAddtoCardOnACtion" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #718093;" text="Add to Card" textFill="#e7d3d3">
          <font>
-            <Font size="13.0" />
+            <Font size="16.0" />
          </font></Button>
       <Text fill="#ece4e4" layoutX="454.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Customer Id">
          <font>
@@ -74,9 +74,9 @@
       </Text>
       <TextField fx:id="txtcuustomerId" layoutX="481.0" layoutY="223.0" prefHeight="26.0" prefWidth="230.0" />
       <ComboBox fx:id="comEmail" layoutX="109.0" layoutY="223.0" onAction="#comEmailOnAction" prefHeight="26.0" prefWidth="229.0" />
-      <Button fx:id="btnPlaceOrder" layoutX="800.0" layoutY="749.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="35.0" prefWidth="104.0" style="-fx-background-color: #718093;" text="Place Order" textFill="#efe6e6">
+      <Button fx:id="btnPlaceOrder" layoutX="852.0" layoutY="739.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: #718093;" text="Place Order" textFill="#efe6e6">
          <font>
-            <Font size="13.0" />
+            <Font size="18.0" />
          </font></Button>
       <Line endX="997.0" endY="6.600006103515625" layoutX="31.0" layoutY="303.0" startX="-100.0" stroke="#efe3e3" />
       <TextField fx:id="txtOrderaId" layoutX="110.0" layoutY="123.0" prefHeight="26.0" prefWidth="230.0" />
@@ -108,11 +108,11 @@
          </font>
       </Text>
       <DatePicker fx:id="txtdate" layoutX="481.0" layoutY="124.0" prefHeight="26.0" prefWidth="230.0" />
-      <Button fx:id="btnAdd" layoutX="762.0" layoutY="249.0" mnemonicParsing="false" onAction="#btnAddOnAction" style="-fx-background-color: #718093;" text="Add+" textFill="#f2e7e7">
+      <TextField fx:id="txtItemcode" layoutX="15.0" layoutY="358.0" prefHeight="26.0" prefWidth="118.0" />
+      <Button fx:id="btnPrint" layoutX="852.0" layoutY="415.0" mnemonicParsing="false" onAction="#btnPrintOnACtion" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: #718093;" text="Print Bill" textFill="#e4e2e2">
          <font>
-            <Font size="14.0" />
+            <Font size="18.0" />
          </font>
       </Button>
-      <TextField fx:id="txtItemcode" layoutX="15.0" layoutY="358.0" prefHeight="26.0" prefWidth="118.0" />
    </children>
 </AnchorPane>

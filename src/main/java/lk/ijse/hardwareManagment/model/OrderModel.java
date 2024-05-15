@@ -6,10 +6,7 @@ import lk.ijse.hardwareManagment.dto.ItemDto;
 import lk.ijse.hardwareManagment.dto.OrderDto;
 import lk.ijse.hardwareManagment.dto.OrderdetailsDto;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class OrderModel {
 
@@ -42,14 +39,15 @@ public class OrderModel {
 
 
 
-    public boolean saveOrder(String orderId, String date, String customerId, String email, Double
+    public boolean saveOrder(String orderId, String date, String customerId, Double
             amount, ObservableList<OrderdetailsDto> observableList) throws SQLException {
         Connection connection = null;
         try {
             connection = DbConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
             System.out.println("lala");
-            boolean saveOrder = save(new OrderDto(orderId, date,customerId, email));
+            //String orderId, String date, String customerID, String email
+            boolean saveOrder = save(new OrderDto(orderId, date,customerId));
             System.out.println(saveOrder);
             if (saveOrder == true) {
                 System.out.println("hi");
@@ -67,6 +65,7 @@ public class OrderModel {
             }
             return false;
         } catch (Exception e) {
+            e.printStackTrace();
             connection.rollback();
             return false;
         } finally {
@@ -108,11 +107,11 @@ public class OrderModel {
 
     private boolean save(OrderDto orderDto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
-        PreparedStatement pstm = connection.prepareStatement("insert into orders values(?,?,?,?)");
+        PreparedStatement pstm = connection.prepareStatement("insert into orders values(?,?,?)");
+        System.out.println(orderDto);
         pstm.setObject(1, orderDto.getOrderId());
-        pstm.setObject(2, orderDto.getDate());
+        pstm.setDate(2, Date.valueOf(orderDto.getDate()));
         pstm.setObject(3, orderDto.getCustomerID());
-        pstm.setObject(4, orderDto.getEmail());
         return pstm.executeUpdate() > 0;
     }
     }

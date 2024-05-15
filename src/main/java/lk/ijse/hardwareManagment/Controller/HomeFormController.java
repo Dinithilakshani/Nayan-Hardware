@@ -33,7 +33,7 @@ public class HomeFormController  {
 
 
     private int customerCount;
-   
+
 
     public void initialize() {
         realTime();
@@ -65,21 +65,6 @@ public class HomeFormController  {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
         timeLebal.setText(DateTimeUtil.dateNow());
-    }
-
-    private void setLblEmployeeCount11(int employeeCount11) {
-        System.out.println(employeeCount11);
-        if (customerCount!=0){
-            lblEmployeeCount11.setText(String.valueOf(employeeCount11));
-        }
-    }
-
-    private int geteEmployeecount() throws SQLException {
-        String sql = "SELECT COUNT(*) AS employee_count FROM employee";
-        Connection connection = DbConnection.getInstance().getConnection();
-        PreparedStatement pstm = connection.prepareStatement(sql);
-        ResultSet resultSet = pstm.executeQuery();
-        return resultSet.next() ? resultSet.getInt("employee_count") : 0;
     }
 
 }

@@ -1,4 +1,4 @@
-/*package lk.ijse.hardwareManagment.Controller;
+package lk.ijse.hardwareManagment.Controller;
 
 
 
@@ -19,6 +19,7 @@ import lk.ijse.hardwareManagment.dto.SupplierDto;
 import lk.ijse.hardwareManagment.model.EmployeeModel;
 import lk.ijse.hardwareManagment.model.ItemModel;
 //import lk.ijse.hardwareManagment.model.SupplierModel;
+import lk.ijse.hardwareManagment.model.SupplierModel;
 import lk.ijse.hardwareManagment.util.ValidateUtil;
 
 import java.net.URL;
@@ -55,10 +56,11 @@ public class SupplierFormController implements Initializable {
     private TableColumn<?, ?> colEmail;
 
     @FXML
-    private TableColumn<?, ?> colId;
+    private TableColumn<?, ?> colCompany;
 
     @FXML
-    private TableColumn<?, ?> colName;
+    private TableColumn<?, ?> colDescription;
+
 
     @FXML
     private TableColumn<?, ?> colNum;
@@ -167,9 +169,10 @@ public class SupplierFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colEmail.setCellValueFactory(new PropertyValueFactory<>("EmailAddress"));
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colNum.setCellValueFactory(new PropertyValueFactory<>("Number"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("Number"));
+        colCompany.setCellValueFactory(new PropertyValueFactory<>("SupplierCompany"));
+
 
         loadTableData();
 
@@ -197,8 +200,8 @@ public class SupplierFormController implements Initializable {
             SupplierDto supplierDto = SupplierModel.searchByemail(emailAddress);
 
             if (supplierDto != null) {
-                txtid.setText(supplierDto.getId());
-                txtname.setText(supplierDto.getName());
+                txtid.setText(supplierDto.getSupplierCompany());
+                txtname.setText(supplierDto.getDescription());
                 txtNumber.setText(supplierDto.getNumber());
                 txtAddress.setText(supplierDto.getEmailAddress());
 
@@ -216,4 +219,4 @@ public class SupplierFormController implements Initializable {
         ValidateUtil.validation(map);
 
     }
-}*/
+}

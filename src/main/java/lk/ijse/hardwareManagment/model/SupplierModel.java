@@ -1,4 +1,4 @@
-/*package lk.ijse.hardwareManagment.model;
+package lk.ijse.hardwareManagment.model;
 
 import javafx.collections.FXCollections;
 import javafx.scene.control.Alert;
@@ -126,4 +126,3 @@ public class SupplierModel {
 
     }
 }
-*/

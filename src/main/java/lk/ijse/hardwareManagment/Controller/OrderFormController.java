@@ -14,12 +14,20 @@ import lk.ijse.hardwareManagment.model.CustomerModel;
 import lk.ijse.hardwareManagment.model.EmployeeModel;
 import lk.ijse.hardwareManagment.model.ItemModel;
 import lk.ijse.hardwareManagment.model.OrderModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
+import java.io.InputStream;
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 
@@ -46,6 +54,10 @@ public class OrderFormController implements Initializable {
 
     @FXML
     private Button btnPlaceOrder;
+
+    @FXML
+    private Button btnPrint;
+
 
     @FXML
     private TableColumn<?, ?> colDescription;
@@ -121,21 +133,18 @@ public class OrderFormController implements Initializable {
     void btnPlaceOrderOnAction(ActionEvent event)throws SQLException {
             String orderId = txtOrderaId.getText();
             String date = String.valueOf(txtdate.getValue());
-            String customerId = String.valueOf(txtcuustomerId.getText());
-            String customerEmail = (String) comEmail.getValue();
+
+            String customerId = txtcuustomerId.getText();
+
 double total =10.0;
             OrderModel orderModel = new OrderModel();
-            boolean b = orderModel.saveOrder(orderId, date, customerId,customerEmail, total, observableList);
+            boolean b = orderModel.saveOrder(orderId, date, customerId, total, observableList);
             if (b){
                 new Alert(Alert.AlertType.CONFIRMATION,"save Order..!").show();
             }else {
-                new Alert(Alert.AlertType.ERROR,"Something Wrong..!").show();
+                new Alert(Alert.AlertType.CONFIRMATION,"save Order..!").show();
             }
         }
-
-
-
-
 
     @FXML
     void comEmailOnAction(ActionEvent event) throws SQLException {
@@ -161,9 +170,35 @@ double total =10.0;
     void txtOnKeyRelesed(KeyEvent event) {
 
     }
+    @FXML
+    void btnPrintOnACtion(ActionEvent event) throws SQLException, JRException {
+        try {
+            InputStream inputStream = getClass().getResourceAsStream("/Report/orders.jrxml");
+            if (inputStream != null) {
+                JasperDesign jasperDesign = JRXmlLoader.load(inputStream);
 
+                JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+                Map<String, Object> data = new HashMap<>();
+                data.put("Customer Email", comEmail.getValue());
+                data.put("NetTotal", "3000");
+
+                Connection connection = DbConnection.getInstance().getConnection();
+                if (connection != null) {
+                    JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, data, connection);
+                    JasperViewer.viewReport(jasperPrint, false);
+                } else {
+                    System.err.println("Failed to obtain database connection.");
+                }
+            } else {
+                System.err.println("Failed to load orders.jrxml");
+            }
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+    }
+
+        public void initialize(URL url, ResourceBundle resourceBundle) {
         setCustomerValues();
         setItemCOde();
 

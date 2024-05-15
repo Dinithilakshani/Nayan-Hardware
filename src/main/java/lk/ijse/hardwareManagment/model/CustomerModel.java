@@ -57,8 +57,24 @@ public class CustomerModel {
         return pstm.executeUpdate() > 0;
     }
 
+   /* public static String getcustomerId(String value) {
+        String sql = "select * from customer where email =?";
+        String cusId =null;
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setObject(1,value);
+            ResultSet resultSet = pstm.executeQuery();
+            if (resultSet.next()){
+                cusId=resultSet.getString("id");
 
-
+            }
+            return cusId;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+*/
 
     public int saveCustomer(String id, String name, String address, String tel, String email) {
         try {

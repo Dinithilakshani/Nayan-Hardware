@@ -16,9 +16,8 @@ CREATE TABLE orders
     id         VARCHAR(6) PRIMARY KEY,
     date       DATE,
     customerId VARCHAR(6) NOT NULL,
-    email      varchar(30) unique key,
-    CONSTRAINT FOREIGN KEY (customerId) REFERENCES customer (id) on Delete Cascade on Update Cascade,
-    CONSTRAINT FOREIGN KEY (email) REFERENCES customer (email) on Delete Cascade on Update Cascade
+
+    CONSTRAINT FOREIGN KEY (customerId) REFERENCES customer (id) on Delete Cascade on Update Cascade
 
 
 );
@@ -33,16 +32,14 @@ CREATE TABLE item(
 
 CREATE TABLE order_detail
 (
-    orderId     VARCHAR(6),
-    description VARCHAR(50) unique key,
-    qty int (10),
-    unitprice int (20),
+    orderId VARCHAR(6),
+    description VARCHAR(50) ,
+    qty int(10),
+    unitprice int(20),
+    amount varchar(20),
 
-    amount      varchar(20),
+    CONSTRAINT FOREIGN KEY (orderId) REFERENCES orders (id) on Delete Cascade on Update Cascade
 
-    CONSTRAINT FOREIGN KEY (orderId) REFERENCES orders (id) on Delete Cascade on Update Cascade,
-
-        CONSTRAINT FOREIGN KEY (description) REFERENCES item (description) on Delete Cascade on Update Cascade
 
 );
 
