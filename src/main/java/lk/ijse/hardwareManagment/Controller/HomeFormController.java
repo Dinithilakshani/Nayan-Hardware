@@ -18,7 +18,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class HomeFormController  {
+public class HomeFormController {
 
     public Label lblCustomerCount;
 
@@ -29,10 +29,12 @@ public class HomeFormController  {
     private Label lblEmployeeCount11;
 
     @FXML
-    private Label lblSupplierCount1;
+    private Label lblSupplierCount;
 
 
     private int customerCount;
+    private int suppliercount;
+    private int employeecount;
 
 
     public void initialize() {
@@ -44,13 +46,30 @@ public class HomeFormController  {
         }
 
         this.setCustomerCount(this.customerCount);
+
+        try {
+            this.suppliercount = this.getSuppliercount();
+        } catch (SQLException var2) {
+            (new Alert(Alert.AlertType.ERROR, var2.getMessage(), new ButtonType[0])).show();
+        }
+        this.setSuppliercount(this.suppliercount);
+
+
+        try {
+            this.employeecount = this.getEmployeecount();
+        } catch (SQLException var2) {
+            (new Alert(Alert.AlertType.ERROR, var2.getMessage(), new ButtonType[0])).show();
+        }
+        this.setLblEmployeeCount11(this.employeecount);
+
     }
+
 
     private void setCustomerCount(int customerCount) {
         System.out.println(customerCount);
-       if (customerCount!=0){
-           lblCustomerCount.setText(String.valueOf(customerCount));
-       }
+        if (customerCount != 0) {
+            lblCustomerCount.setText(String.valueOf(customerCount));
+        }
     }
 
     private int getCustomerCount() throws SQLException {
@@ -60,11 +79,44 @@ public class HomeFormController  {
         ResultSet resultSet = pstm.executeQuery();
         return resultSet.next() ? resultSet.getInt("customer_count") : 0;
     }
+
+
     private void realTime() {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> timeLebal.setText(DateTimeUtil.timenow())));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
         timeLebal.setText(DateTimeUtil.dateNow());
     }
+
+    private void setSuppliercount(int suppliercount) {
+        System.out.println(suppliercount);
+        if (suppliercount != 0) {
+            lblSupplierCount.setText(String.valueOf(suppliercount));
+        }
+    }
+
+    private int getSuppliercount() throws SQLException {
+        String sql = "SELECT COUNT(*) AS supplier_count FROM supplier";
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+        return resultSet.next() ? resultSet.getInt("supplier_count") : 0;
+    }
+
+    private void setLblEmployeeCount11(int employeecount) {
+        System.out.println(employeecount);
+        if (employeecount != 0) {
+            lblEmployeeCount11.setText(String.valueOf(employeecount));
+        }
+    }
+
+    private int getEmployeecount() throws SQLException {
+        String sql = "SELECT COUNT(*) AS employee_count  FROM employee";
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+        return resultSet.next() ? resultSet.getInt("employee_count") : 0;
+    }
+
 
 }

@@ -4,7 +4,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -12,45 +11,80 @@
    <children>
       <ImageView fitHeight="795.0" fitWidth="1142.0">
          <image>
+            <Image url="@../assets/hii2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="795.0" fitWidth="1142.0">
+         <image>
             <Image url="@../assets/kk.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="192.0" layoutX="25.0" layoutY="572.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
-      <Text fill="#302a2a" layoutX="81.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer count">
+      <Label layoutX="25.0" layoutY="132.0" prefHeight="335.0" prefWidth="971.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 40;" />
+      <Label fx:id="lblCustomerCount" alignment="CENTER" contentDisplay="CENTER" layoutX="39.0" layoutY="563.0" prefHeight="168.0" prefWidth="274.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 30;" textOverrun="CENTER_ELLIPSIS">
          <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Label fx:id="lblCustomerCount" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="596.0" prefHeight="168.0" prefWidth="190.0" style="-fx-background-color: white; -fx-background-radius: 30;" textOverrun="CENTER_ELLIPSIS">
-         <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="System Bold" size="53.0" />
          </font>
       </Label>
-      <Label fx:id="timeLebal" layoutX="39.0" layoutY="14.0" prefHeight="471.0" prefWidth="1142.0" text="Label" textFill="#3b1f89">
+      <Text fill="#131212" layoutX="109.0" layoutY="591.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer count" wrappingWidth="134.8330078125">
          <font>
-            <Font size="86.0" />
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Label fx:id="timeLebal" layoutX="26.0" layoutY="132.0" prefHeight="335.0" prefWidth="971.0" text="Label" textFill="#242326">
+         <font>
+            <Font size="64.0" />
          </font></Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="192.0" layoutX="410.0" layoutY="572.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
-      <Label fx:id="lblSupplierCount1" alignment="CENTER" contentDisplay="CENTER" layoutX="435.0" layoutY="584.0" prefHeight="168.0" prefWidth="190.0" style="-fx-background-color: white; -fx-background-radius: 30;" textOverrun="CENTER_ELLIPSIS">
+      <Label fx:id="lblSupplierCount" alignment="CENTER" contentDisplay="CENTER" layoutX="381.0" layoutY="563.0" prefHeight="168.0" prefWidth="274.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 30;" textFill="#050505" textOverrun="CENTER_ELLIPSIS">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="System Bold" size="53.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#718093" height="192.0" layoutX="757.0" layoutY="572.0" stroke="BLACK" strokeType="INSIDE" width="240.0" />
-      <Label fx:id="lblEmployeeCount11" alignment="CENTER" contentDisplay="CENTER" layoutX="782.0" layoutY="584.0" prefHeight="168.0" prefWidth="190.0" style="-fx-background-color: white; -fx-background-radius: 30;" textOverrun="CENTER_ELLIPSIS">
+      <Label fx:id="lblEmployeeCount11" alignment="CENTER" contentDisplay="CENTER" layoutX="720.0" layoutY="563.0" prefHeight="168.0" prefWidth="274.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 30;" textOverrun="CENTER_ELLIPSIS">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="System Bold" size="53.0" />
          </font>
       </Label>
-      <Text layoutX="441.0" layoutY="547.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier Count">
+      <Text layoutX="491.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier Count">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text layoutX="782.0" layoutY="547.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Count">
+      <Text layoutX="833.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Count">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Text>
+      <ImageView fitHeight="76.0" fitWidth="113.0" layoutX="392.0" layoutY="609.0">
+         <image>
+            <Image url="@../assets/supplier.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="90.0" fitWidth="99.0" layoutX="50.0" layoutY="612.0">
+         <image>
+            <Image url="@../assets/customer.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="102.0" fitWidth="99.0" layoutX="734.0" layoutY="596.0">
+         <image>
+            <Image url="@../assets/team-management.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="120.0" fitWidth="187.0" layoutX="846.0" layoutY="1.0">
+         <image>
+            <Image url="@../assets/LAYAN%20LOGO.png" />
+         </image>
+      </ImageView>
+      <Text fill="#fcf6f6" layoutX="95.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Nayan Hardware" wrappingWidth="706.1366271972656">
+         <font>
+            <Font name="System Bold" size="51.0" />
+         </font>
+      </Text>
+      <Label layoutX="-1.0" layoutY="495.0" prefHeight="18.0" prefWidth="1142.0" style="-fx-background-color: #dff9fb;" />
+      <Label layoutX="330.0" layoutY="513.0" prefHeight="282.0" prefWidth="13.0" style="-fx-background-color: #dff9fb;" />
+      <Label layoutX="674.0" layoutY="513.0" prefHeight="282.0" prefWidth="14.0" style="-fx-background-color: #dff9fb;" />
+      <Label layoutX="204.0" layoutY="459.0" prefHeight="41.0" prefWidth="14.0" style="-fx-background-color: #dff9fb;" />
+      <Label layoutX="819.0" layoutY="467.0" prefHeight="34.0" prefWidth="14.0" style="-fx-background-color: #dff9fb;" />
+      <Label layoutX="996.0" layoutY="229.0" prefHeight="0.0" prefWidth="146.0" style="-fx-background-color: #dff9fb;" />
+      <Label layoutX="996.0" layoutY="352.0" prefHeight="18.0" prefWidth="145.0" style="-fx-background-color: #dff9fb;" />
    </children>
 </AnchorPane>

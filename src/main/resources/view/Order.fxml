@@ -3,44 +3,49 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1028.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hardwareManagment.Controller.OrderFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1066.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hardwareManagment.Controller.OrderFormController">
    <children>
-      <ImageView fitHeight="800.0" fitWidth="1028.0">
+      <ImageView fitHeight="800.0" fitWidth="1066.0">
          <image>
-            <Image url="@../assets/lala.jpg" />
+            <Image url="@../assets/mmm.jpg" />
          </image>
       </ImageView>
-      <Text fill="#f2eded" layoutX="23.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order  Manage">
+      <ImageView fitHeight="191.0" fitWidth="200.0" layoutX="795.0" layoutY="85.0">
+         <image>
+            <Image url="@../assets/order-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Text fill="#f2eded" layoutX="15.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order  Manage">
          <font>
-            <Font size="28.0" />
+            <Font name="System Bold" size="42.0" />
          </font>
       </Text>
       <Text fill="#f2eded" layoutX="187.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="description">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Text>
-      <Text fill="#f2eded" layoutX="350.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="qyt">
+      <Text fill="#f2eded" layoutX="730.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="qyt">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Text>
-      <Text fill="#f2eded" layoutX="685.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QtyOnHeand">
+      <Text fill="#f2eded" layoutX="361.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QtyOnHeand">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Text>
-      <ImageView fitHeight="86.0" fitWidth="118.0" layoutX="793.0" layoutY="14.0">
+      <ImageView fitHeight="80.0" fitWidth="143.0" layoutX="873.0" layoutY="7.0">
          <image>
             <Image url="@../assets/LAYAN%20LOGO.png" />
          </image>
@@ -48,38 +53,36 @@
       <TableView fx:id="tblOrders" layoutX="59.0" layoutY="466.0" prefHeight="248.0" prefWidth="820.0">
         <columns>
           <TableColumn fx:id="ColOrderId" prefWidth="119.99999618530273" text="OrderId" />
-          <TableColumn fx:id="colDescription" prefWidth="136.80006408691406" text="Description" />
-            <TableColumn fx:id="colqty" minWidth="0.0" prefWidth="107.20001220703125" text="qty" />
-            <TableColumn fx:id="colUnitprice" minWidth="0.0" prefWidth="104.0" text="Unit Price" />
-            <TableColumn fx:id="ColAmount" minWidth="0.0" prefWidth="172.800048828125" text="Amount" />
-            <TableColumn fx:id="ColAction" minWidth="0.0" prefWidth="176.79998779296875" text="Action" />
+          <TableColumn fx:id="colDescription" prefWidth="180.79995727539062" text="Description" />
+            <TableColumn fx:id="colqty" minWidth="0.0" prefWidth="148.800048828125" text="qty" />
+            <TableColumn fx:id="colUnitprice" minWidth="0.0" prefWidth="149.5999755859375" text="Unit Price" />
+            <TableColumn fx:id="ColAmount" minWidth="0.0" prefWidth="220.79998779296875" text="Amount" />
         </columns>
       </TableView>
-      <TextField fx:id="txtQtyONHENAD" layoutX="693.0" layoutY="358.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="26.0" prefWidth="98.0" style="-fx-alignment: white; -fx-background-radius:8px;" />
-      <TextField fx:id="txtUnitprice" layoutX="526.0" layoutY="358.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="26.0" prefWidth="98.0" style="-fx-alignment: white;" />
+      <TextField fx:id="txtQtyONHENAD" layoutX="370.0" layoutY="358.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="38.0" prefWidth="123.0" style="-fx-alignment: white; -fx-background-radius: 15;" />
+      <TextField fx:id="txtUnitprice" layoutX="526.0" layoutY="358.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="38.0" prefWidth="123.0" style="-fx-alignment: white; -fx-background-radius: 15;" />
       <Text fill="#fcf4f4" layoutX="9.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ItemCode">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Text>
-      <TextField fx:id="txtDescription" layoutX="186.0" layoutY="358.0" onAction="#txtDescriptionOnAction" onKeyReleased="#txtOnKeyRelesed" prefHeight="26.0" prefWidth="118.0" style="-fx-alignment: white;" />
-      <Button fx:id="btnAddtoCard" layoutX="705.0" layoutY="417.0" mnemonicParsing="false" onAction="#btnAddtoCardOnACtion" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #718093;" text="Add to Card" textFill="#e7d3d3">
+      <TextField fx:id="txtDescription" layoutX="186.0" layoutY="358.0" onAction="#txtDescriptionOnAction" onKeyReleased="#txtOnKeyRelesed" prefHeight="38.0" prefWidth="123.0" style="-fx-alignment: white; -fx-background-radius: 15;" />
+      <Button fx:id="btnAddtoCard" layoutX="705.0" layoutY="417.0" mnemonicParsing="false" onAction="#btnAddtoCardOnACtion" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Add to Card" textFill="#e7d3d3">
          <font>
             <Font size="16.0" />
          </font></Button>
       <Text fill="#ece4e4" layoutX="454.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Customer Id">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Text>
-      <TextField fx:id="txtcuustomerId" layoutX="481.0" layoutY="223.0" prefHeight="26.0" prefWidth="230.0" />
-      <ComboBox fx:id="comEmail" layoutX="109.0" layoutY="223.0" onAction="#comEmailOnAction" prefHeight="26.0" prefWidth="229.0" />
-      <Button fx:id="btnPlaceOrder" layoutX="852.0" layoutY="739.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: #718093;" text="Place Order" textFill="#efe6e6">
+      <TextField fx:id="txtcuustomerId" layoutX="481.0" layoutY="223.0" prefHeight="38.0" prefWidth="230.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
+      <ComboBox fx:id="comEmail" layoutX="109.0" layoutY="223.0" onAction="#comEmailOnAction" prefHeight="38.0" prefWidth="230.0" />
+      <Button fx:id="btnPlaceOrder" layoutX="852.0" layoutY="739.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Place Order" textFill="#efe6e6">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Line endX="997.0" endY="6.600006103515625" layoutX="31.0" layoutY="303.0" startX="-100.0" stroke="#efe3e3" />
-      <TextField fx:id="txtOrderaId" layoutX="110.0" layoutY="123.0" prefHeight="26.0" prefWidth="230.0" />
+      <TextField fx:id="txtOrderaId" layoutX="110.0" layoutY="123.0" prefHeight="37.0" prefWidth="230.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
       <Text fill="#ecebeb" layoutX="42.0" layoutY="754.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Net Total">
          <font>
             <Font size="18.0" />
@@ -88,31 +91,32 @@
       <TextField fx:id="txtNetPrice" layoutX="111.0" layoutY="759.0" />
       <Text fill="#efe8e8" layoutX="526.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UnitPrice">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Text>
-      <TextField fx:id="txtQtY" layoutX="350.0" layoutY="358.0" prefHeight="26.0" prefWidth="98.0" />
-      <Text fill="#ece3e3" layoutX="56.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Id">
+      <TextField fx:id="txtQtY" layoutX="711.0" layoutY="358.0" prefHeight="38.0" prefWidth="123.0" style="-fx-background-radius: 15;" />
+      <Text fill="#ece3e3" layoutX="41.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Id">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Text>
       <Text fill="#f4e8e8" layoutX="459.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Date">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Text>
       <Text fill="#f4eaea" layoutX="42.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Email">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Text>
-      <DatePicker fx:id="txtdate" layoutX="481.0" layoutY="124.0" prefHeight="26.0" prefWidth="230.0" />
-      <TextField fx:id="txtItemcode" layoutX="15.0" layoutY="358.0" prefHeight="26.0" prefWidth="118.0" />
-      <Button fx:id="btnPrint" layoutX="852.0" layoutY="415.0" mnemonicParsing="false" onAction="#btnPrintOnACtion" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: #718093;" text="Print Bill" textFill="#e4e2e2">
+      <DatePicker fx:id="txtdate" layoutX="481.0" layoutY="124.0" prefHeight="38.0" prefWidth="230.0" />
+      <TextField fx:id="txtItemcode" layoutX="14.0" layoutY="358.0" prefHeight="38.0" prefWidth="123.0" style="-fx-background-radius: 15;" />
+      <Button fx:id="btnPrint" layoutX="852.0" layoutY="415.0" mnemonicParsing="false" onAction="#btnPrintOnACtion" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Print Bill" textFill="#e4e2e2">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
+      <Label layoutX="-1.0" layoutY="304.0" prefHeight="18.0" prefWidth="1066.0" style="-fx-background-color: #dff9fb;" />
    </children>
 </AnchorPane>

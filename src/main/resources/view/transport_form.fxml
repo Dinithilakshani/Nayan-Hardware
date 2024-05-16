@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -13,9 +14,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1065.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hardwareManagment.Controller.TransportFormController">
    <children>
-      <ImageView fitHeight="800.0" fitWidth="1066.0">
+      <ImageView fitHeight="800.0" fitWidth="1065.0">
          <image>
-            <Image url="@../assets/lala.jpg" />
+            <Image url="@../assets/mmm.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="82.0" fitWidth="116.0" layoutX="815.0" layoutY="3.0">
@@ -23,47 +24,53 @@
             <Image url="@../assets/LAYAN%20LOGO.png" />
          </image>
       </ImageView>
-      <Text fill="#e2e2ea" layoutX="7.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transport Manage">
+      <ImageView fitHeight="168.0" fitWidth="200.0" layoutX="608.0">
+         <image>
+            <Image url="@../assets/trancport_pic-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Text fill="#e2e2ea" layoutX="14.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transport Manage">
          <font>
-            <Font size="30.0" />
+            <Font name="System Bold" size="41.0" />
          </font>
       </Text>
       <Text fill="#e2e2ea" layoutX="36.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transport Id">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Text>
-      <TextField fx:id="textId" layoutX="103.0" layoutY="190.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: WHITE; -fx-background-radius: 30;" />
+      <TextField fx:id="textId" layoutX="103.0" layoutY="190.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: WHITE; -fx-background-radius: 15;" />
       <Text fill="#e2e2ea" layoutX="35.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transport area">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Text>
       <Text fill="#e2e2ea" layoutX="475.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transport time">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Text>
-      <TextField fx:id="txtArea" layoutX="106.0" layoutY="276.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="40.0" prefWidth="254.0" style="-fx-background-color: WHITE; -fx-background-radius: 30;" />
-      <TextField fx:id="texTime" layoutX="527.0" layoutY="200.0" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: WHITE; -fx-background-radius: 30;" />
-      <Button fx:id="btnClier" layoutX="866.0" layoutY="165.0" mnemonicParsing="false" onAction="#btnClierOnAction" prefHeight="50.0" prefWidth="134.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Clear" textFill="#f2eaea">
+      <TextField fx:id="txtArea" layoutX="106.0" layoutY="276.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: WHITE; -fx-background-radius: 15;" />
+      <TextField fx:id="texTime" layoutX="527.0" layoutY="200.0" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: WHITE; -fx-background-radius: 15;" />
+      <Label layoutX="826.0" layoutY="127.0" prefHeight="328.0" prefWidth="200.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 15;" />
+      <Button fx:id="btnClier" layoutX="866.0" layoutY="165.0" mnemonicParsing="false" onAction="#btnClierOnAction" prefHeight="50.0" prefWidth="134.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Clear" textFill="#f2eaea">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="btnUpdate" layoutX="866.0" layoutY="237.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="50.0" prefWidth="134.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Update" textFill="#dcd4d4">
+      <Button fx:id="btnUpdate" layoutX="866.0" layoutY="237.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="50.0" prefWidth="134.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Update" textFill="#dcd4d4">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="btnSave" layoutX="864.0" layoutY="313.0" mnemonicParsing="false" onAction="#BtnSaveOnAction" prefHeight="50.0" prefWidth="134.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Save" textFill="#faf5f5">
+      <Button fx:id="btnSave" layoutX="864.0" layoutY="313.0" mnemonicParsing="false" onAction="#BtnSaveOnAction" prefHeight="50.0" prefWidth="134.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Save" textFill="#faf5f5">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete" layoutX="866.0" layoutY="390.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="50.0" prefWidth="134.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Delete" textFill="#d4c9c9">
+      <Button fx:id="btnDelete" layoutX="866.0" layoutY="390.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="50.0" prefWidth="134.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Delete" textFill="#d4c9c9">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Button>
       <ImageView fitHeight="26.0" fitWidth="25.0" layoutX="874.0" layoutY="402.0">
@@ -92,20 +99,20 @@
             <TableColumn fx:id="colVehicalid" prefWidth="143.19998168945312" text="Vehical id" />
             <TableColumn fx:id="colArera" minWidth="0.0" prefWidth="232.79995727539062" text="Transport area" />
             <TableColumn fx:id="colTime" minWidth="0.0" prefWidth="222.4000244140625" text="Transport Time" />
-            <TableColumn fx:id="colDate" prefWidth="176.7999267578125" text="Transport Date" />
+            <TableColumn fx:id="colDate" prefWidth="198.39996337890625" text="Transport Date" />
         </columns>
       </TableView>
       <Text fill="#e2e2ea" layoutX="475.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vehical Id">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Text>
       <Text fill="#e2e2ea" layoutX="43.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transport Date">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Text>
       <DatePicker fx:id="txtDate" layoutX="122.0" layoutY="348.0" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: White; -fx-background-radius: 30; -fx-background-position: ;" />
-      <TextField fx:id="txtVehical" layoutX="527.0" layoutY="287.0" onAction="#txtVehicalOnACtion" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: WHITE; -fx-background-radius: 30;" />
+      <TextField fx:id="txtVehical" layoutX="527.0" layoutY="287.0" onAction="#txtVehicalOnACtion" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: WHITE; -fx-background-radius: 15;" />
    </children>
 </AnchorPane>

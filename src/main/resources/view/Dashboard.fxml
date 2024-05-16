@@ -9,46 +9,46 @@
 
 <AnchorPane fx:id="planeAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hardwareManagment.Controller.DashboardFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#485460" height="806.0" layoutX="-2.0" layoutY="-11.0" stroke="BLACK" strokeType="INSIDE" style="-fx-rotate: 0;" width="237.0" />
-      <Button fx:id="btnEmployee" layoutX="11.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnEmployeeOnACtion" prefHeight="54.0" prefWidth="172.0" style="-fx-background-color: #d1d8e0; -fx-background-radius: 20;" text="Employee Manage" textFill="#1d162e">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dff9fb" height="806.0" layoutX="-2.0" layoutY="-11.0" stroke="BLACK" strokeType="INSIDE" style="-fx-rotate: 0;" width="237.0" />
+      <Button fx:id="btnEmployee" layoutX="11.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnEmployeeOnACtion" prefHeight="54.0" prefWidth="194.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Employee Manage" textFill="#eceaf2">
          <font>
-            <Font size="17.0" />
+            <Font name="System Bold" size="19.0" />
          </font></Button>
-      <Button fx:id="btnSupplier" layoutX="11.0" layoutY="275.0" mnemonicParsing="false" onAction="#btnSupplierOnAction" prefHeight="54.0" prefWidth="172.0" style="-fx-background-color: #d1d8e0; -fx-background-radius: 20;" text="Supplier Manage" textFill="#1f1f20">
+      <Button fx:id="btnSupplier" layoutX="11.0" layoutY="275.0" mnemonicParsing="false" onAction="#btnSupplierOnAction" prefHeight="54.0" prefWidth="194.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Supplier Manage" textFill="#f2f2fa">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="19.0" />
          </font></Button>
-      <Button fx:id="btnHome" layoutX="11.0" layoutY="122.0" mnemonicParsing="false" onAction="#btnHomeOnAction" prefHeight="54.0" prefWidth="172.0" style="-fx-background-color: #d1d8e0; -fx-background-radius: 20;" text="Home" textFill="#212123">
+      <Button fx:id="btnHome" layoutX="11.0" layoutY="122.0" mnemonicParsing="false" onAction="#btnHomeOnAction" prefHeight="54.0" prefWidth="194.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Home" textFill="#f0f0f4">
          <font>
-            <Font size="17.0" />
+            <Font name="System Bold" size="19.0" />
          </font></Button>
-      <Button fx:id="btnItem" layoutX="11.0" layoutY="355.0" mnemonicParsing="false" onAction="#btnItemOnAction" prefHeight="54.0" prefWidth="172.0" style="-fx-background-color: #d1d8e0; -fx-background-radius: 20;" text="ItemManage" textFill="#111113">
+      <Button fx:id="btnItem" layoutX="11.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnItemOnAction" prefHeight="54.0" prefWidth="194.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="ItemManage" textFill="#ebebf4">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="19.0" />
          </font></Button>
-      <Button fx:id="btnLogout" layoutX="45.0" layoutY="695.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="66.0" prefWidth="172.0" style="-fx-background-color: #d1d8e0; -fx-background-radius: 40;" text="Log out" textFill="#28282e">
+      <Button fx:id="btnLogout" layoutX="45.0" layoutY="695.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="66.0" prefWidth="172.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Log out" textFill="#e8e8ef">
          <font>
             <Font name="Arial Bold" size="29.0" />
          </font>
       </Button>
-      <Button fx:id="btnCustomer" layoutX="11.0" layoutY="510.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="54.0" prefWidth="172.0" style="-fx-background-color: #d1d8e0; -fx-background-radius: 20;" text="Customer Manage" textFill="#1d162e">
+      <Button fx:id="btnCustomer" layoutX="11.0" layoutY="512.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="54.0" prefWidth="194.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Customer Manage" textFill="#dbd9df">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="19.0" />
          </font></Button>
       <Pane fx:id="mainPane" layoutX="234.0" layoutY="-5.0" prefHeight="812.0" prefWidth="1050.0" />
-      <Button fx:id="btnTransport" layoutX="11.0" layoutY="426.0" mnemonicParsing="false" onAction="#btnTransportOnAction" prefHeight="54.0" prefWidth="172.0" style="-fx-background-color: #d1d8e0; -fx-background-radius: 20;" text="Transport" textFill="#171718">
+      <Button fx:id="btnTransport" layoutX="11.0" layoutY="431.0" mnemonicParsing="false" onAction="#btnTransportOnAction" prefHeight="54.0" prefWidth="194.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Transport" textFill="#eeeef4">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Button>
-      <Text fill="#e1dbdb" layoutX="10.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome" wrappingWidth="214.8638916015625">
+      <Text fill="#2b2626" layoutX="10.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome" wrappingWidth="214.8638916015625">
          <font>
-            <Font name="System Bold Italic" size="32.0" />
+            <Font name="System Bold Italic" size="46.0" />
          </font>
       </Text>
-      <Button fx:id="btnOrderMange" layoutX="21.0" layoutY="585.0" mnemonicParsing="false" onAction="#btnOrderOnAction" prefHeight="54.0" prefWidth="151.0" style="-fx-background-color: #d1d8e0; -fx-background-radius: 20;" text="Order Mange" textFill="#1d162e">
+      <Button fx:id="btnOrderMange" layoutX="11.0" layoutY="586.0" mnemonicParsing="false" onAction="#btnOrderOnAction" prefHeight="54.0" prefWidth="194.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Order Mange" textFill="#dbd8e1">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Button>
    </children>
