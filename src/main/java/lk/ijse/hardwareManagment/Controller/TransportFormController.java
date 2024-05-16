@@ -102,7 +102,7 @@ public class TransportFormController  implements Initializable {
 
 
         TransportModel transportModel = new TransportModel();
-        int i = transportModel.Savetransport (id,area,time,vehical,date);
+        int i = transportModel.Savetransport (id,area,date,time,vehical);
 
 
         if(i>0){
@@ -244,7 +244,10 @@ colVehicalid.setCellValueFactory(new PropertyValueFactory<>("vehicalId"));
         ValidateUtil.validation(map);
 
     }
-}
+
+
+    }
+
 
 
 

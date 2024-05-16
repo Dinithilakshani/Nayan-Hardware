@@ -68,15 +68,16 @@ public class TransportModel {
 
 
 
-    public int Savetransport(String id, String area, String time, String vehical, String date) {
+    public int Savetransport(String id, String area,String date ,String time, String vehical ) {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
             PreparedStatement pstm = connection.prepareStatement("INSERT INTO transportdetails VALUES(?, ?, ?, ?,?)");
             pstm.setObject(3, id);
             pstm.setObject(1, area);
+            pstm.setObject(5, date);
             pstm.setObject(2, time);
             pstm.setObject(4, vehical);
-            pstm.setObject(5, date);
+            
             return pstm.executeUpdate();
 
         } catch (SQLException var10) {

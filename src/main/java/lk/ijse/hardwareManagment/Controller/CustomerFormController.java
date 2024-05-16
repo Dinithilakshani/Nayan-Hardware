@@ -85,10 +85,10 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-        String id = this.txtId.getText();
+        String contactnumber = this.txtNumber.getText();
 
         CustomerModel customerModel = new CustomerModel();
-        int i = customerModel.deleteCustomer(id);
+        int i = customerModel.deleteCustomer(contactnumber);
 
         if (i < 0) {
             new Alert(Alert.AlertType.CONFIRMATION, "Delete Customer").show();

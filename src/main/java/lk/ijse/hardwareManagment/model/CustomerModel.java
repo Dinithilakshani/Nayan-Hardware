@@ -99,10 +99,10 @@ throw new RuntimeException();
 
 
 
-    public int deleteCustomer(String id) {
+    public int deleteCustomer(String contactnumber) {
         try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM customer WHERE id = ?");
-            pstm.setObject(1, id);
+            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM customer WHERE contactnumber = ?");
+            pstm.setObject(1, contactnumber);
 return pstm.executeUpdate();
 
         } catch (SQLException var5) {
