@@ -1,5 +1,8 @@
 package lk.ijse.hardwareManagment.model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.XYChart;
 import lk.ijse.hardwareManagment.db.DbConnection;
 import lk.ijse.hardwareManagment.dto.EmployeeDto;
 import lk.ijse.hardwareManagment.dto.ItemDto;
@@ -42,6 +45,28 @@ public class ItemModel {
         }
         return itemDto;
     }
+
+    public static ObservableList<XYChart.Series<String, Integer>> getDataToBarChart() throws SQLException {
+            Connection connection = DbConnection.getInstance().getConnection();
+            String sql = "select description , qty from order_detail";
+
+            ObservableList<XYChart.Series<String, Integer>> datalist = FXCollections.observableArrayList();
+
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            ResultSet resultSet = pstm.executeQuery();
+
+            XYChart.Series<String, Integer> series = new XYChart.Series<>();
+
+            while (resultSet.next()) {
+                String description = resultSet.getString("description");
+                Integer qty = resultSet.getInt("qty");
+                series.getData().add(new XYChart.Data<>(description, qty));
+            }
+            datalist.add(series);
+            return datalist;
+        }
+
+
 
 
     public int DeleteItem(String id) {

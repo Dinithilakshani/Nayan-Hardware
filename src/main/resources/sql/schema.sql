@@ -87,8 +87,7 @@ create table Transportdetails(
                                  T_id varchar (15),
                                  id VARCHAR (6) primary key ,
                                  T_Date date,
-                                 foreign key (T_id) references Transport(T_id),
-                                 foreign key (id) references orders(id)
+                                 foreign key (T_id) references Vehical(VID)
 );
 
 create table Vehical (

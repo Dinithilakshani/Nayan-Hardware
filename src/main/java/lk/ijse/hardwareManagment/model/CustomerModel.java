@@ -47,7 +47,7 @@ public class CustomerModel {
 
     public static boolean updatecustomer(CustomerDto customerDto) throws SQLException {
         //String sql = "update customer  name = ?,address = ?,email = ? , contactnumber = ? where id =?";
-        PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("update customer  name = ?,address = ?,email = ? , contactnumber = ? where id =?");
+        PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("update customer set name = ?,address = ?,email = ? , contactnumber = ? where id =?");
         pstm.setObject(1,customerDto.getName());
         pstm.setObject(5,customerDto.getId());
         pstm.setObject(3,customerDto.getEmail());

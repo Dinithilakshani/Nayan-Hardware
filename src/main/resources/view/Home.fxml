@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,7 +22,7 @@
             <Image url="@../assets/kk.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="25.0" layoutY="132.0" prefHeight="335.0" prefWidth="971.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 40;" />
+      <Label layoutX="25.0" layoutY="185.0" prefHeight="224.0" prefWidth="410.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 40;" />
       <Label fx:id="lblCustomerCount" alignment="CENTER" contentDisplay="CENTER" layoutX="39.0" layoutY="563.0" prefHeight="168.0" prefWidth="274.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 30;" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font name="System Bold" size="53.0" />
@@ -30,9 +33,9 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Label fx:id="timeLebal" layoutX="26.0" layoutY="132.0" prefHeight="335.0" prefWidth="971.0" text="Label" textFill="#242326">
+      <Label fx:id="lblTime" layoutX="76.0" layoutY="222.0" prefHeight="94.0" prefWidth="307.0" text="12:56 PM" textFill="#242326">
          <font>
-            <Font size="64.0" />
+            <Font name="System Bold" size="64.0" />
          </font></Label>
       <Label fx:id="lblSupplierCount" alignment="CENTER" contentDisplay="CENTER" layoutX="381.0" layoutY="563.0" prefHeight="168.0" prefWidth="274.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 30;" textFill="#050505" textOverrun="CENTER_ELLIPSIS">
          <font>
@@ -82,9 +85,27 @@
       <Label layoutX="-1.0" layoutY="495.0" prefHeight="18.0" prefWidth="1142.0" style="-fx-background-color: #dff9fb;" />
       <Label layoutX="330.0" layoutY="513.0" prefHeight="282.0" prefWidth="13.0" style="-fx-background-color: #dff9fb;" />
       <Label layoutX="674.0" layoutY="513.0" prefHeight="282.0" prefWidth="14.0" style="-fx-background-color: #dff9fb;" />
-      <Label layoutX="204.0" layoutY="459.0" prefHeight="41.0" prefWidth="14.0" style="-fx-background-color: #dff9fb;" />
       <Label layoutX="819.0" layoutY="467.0" prefHeight="34.0" prefWidth="14.0" style="-fx-background-color: #dff9fb;" />
-      <Label layoutX="996.0" layoutY="229.0" prefHeight="0.0" prefWidth="146.0" style="-fx-background-color: #dff9fb;" />
-      <Label layoutX="996.0" layoutY="352.0" prefHeight="18.0" prefWidth="145.0" style="-fx-background-color: #dff9fb;" />
+      <Label layoutX="989.0" layoutY="229.0" prefHeight="18.0" prefWidth="153.0" style="-fx-background-color: #dff9fb;" />
+      <Label layoutX="988.0" layoutY="352.0" prefHeight="18.0" prefWidth="154.0" style="-fx-background-color: #dff9fb;" />
+      <Label layoutX="478.0" layoutY="113.0" prefHeight="374.0" prefWidth="542.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 15;" />
+      <BarChart fx:id="chartItem" layoutX="484.0" layoutY="160.0" prefHeight="319.0" prefWidth="501.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Text layoutX="598.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item sale Available" wrappingWidth="180.17230224609375">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="lblDate" layoutX="119.0" layoutY="321.0" prefHeight="40.0" prefWidth="222.0" text="Sunday, May 05" textFill="#242326">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

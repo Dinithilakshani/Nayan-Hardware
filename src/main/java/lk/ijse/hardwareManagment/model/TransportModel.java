@@ -1,6 +1,8 @@
 package lk.ijse.hardwareManagment.model;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import lk.ijse.hardwareManagment.db.DbConnection;
@@ -18,7 +20,7 @@ public class TransportModel {
         ArrayList<TransportDeto> Transport = new ArrayList<>();
         try {
             Connection connection = DbConnection.getInstance().getConnection();
-            PreparedStatement pstm = connection.prepareStatement("select * from transportDetails");
+            PreparedStatement pstm = connection.prepareStatement("select * from transportdetails");
             ResultSet resultSet = pstm.executeQuery();
             while (resultSet.next()) {
 
@@ -72,41 +74,39 @@ public class TransportModel {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
             PreparedStatement pstm = connection.prepareStatement("INSERT INTO transportdetails VALUES(?, ?, ?, ?,?)");
-            pstm.setObject(3, id);
+            pstm.setObject(3, vehical);
             pstm.setObject(1, area);
             pstm.setObject(5, date);
             pstm.setObject(2, time);
-            pstm.setObject(4, vehical);
+            pstm.setObject(4, id);
             
             return pstm.executeUpdate();
 
         } catch (SQLException var10) {
             throw new RuntimeException();
         }
-
     }
 
     public int Updatetransport(String id, String area, String time, String vehical, String date) {
         try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE TransportDetails SET t_time = ?, T_area = ? ,id =?,T_Date WHERE T_id = ?");
-            pstm.setObject(3, id);
+            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE TransportDetails SET  T_area = ?, t_time = ?, T_id =?,T_Date WHERE id = ?");
+            pstm.setObject(5, id);
 
             pstm.setObject(1, area);
             pstm.setObject(2, time);
-            pstm.setObject(4, vehical);
-            pstm.setObject(5, date);
+            pstm.setObject(5, vehical);
+            pstm.setObject(4, date);
             return pstm.executeUpdate();
 
 
         } catch (SQLException var8) {
             throw new RuntimeException();
         }
-
     }
 
     public int Deletetransport(String id) {
         try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM tansportDetails WHERE T_id = ?");
+            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM tansportDetails WHERE id = ?");
             pstm.setObject(1, id);
 
             return pstm.executeUpdate();
@@ -115,4 +115,25 @@ public class TransportModel {
             throw new RuntimeException();
         }
     }
+    public static ObservableList<XYChart.Series<String, Integer>> getDataToBarChart() throws SQLException, ClassNotFoundException {
+        DbConnection Dbconnection;
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql = "select description , qty from order_detail";
+
+        ObservableList<XYChart.Series<String, Integer>> datalist = FXCollections.observableArrayList();
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+
+        XYChart.Series<String, Integer> series = new XYChart.Series<>();
+
+        while (resultSet.next()) {
+            String description = resultSet.getString("description");
+            Integer qty = resultSet.getInt("stockLevel");
+            series.getData().add(new XYChart.Data<>(description, qty));
+        }
+        datalist.add(series);
+        return datalist;
+    }
 }
+

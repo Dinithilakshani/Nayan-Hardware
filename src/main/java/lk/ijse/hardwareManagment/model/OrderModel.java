@@ -45,16 +45,16 @@ public class OrderModel {
         try {
             connection = DbConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
-            System.out.println("lala");
+
             //String orderId, String date, String customerID, String email
             boolean saveOrder = save(new OrderDto(orderId, date,customerId));
             System.out.println(saveOrder);
             if (saveOrder == true) {
-                System.out.println("hi");
+
 
                 boolean saveOrderDetails = orderdetailsSave(orderId, observableList);
                 if (saveOrderDetails == true) {
-                    System.out.println("hi2");
+
                     boolean b = updateItemQty(observableList);
 
                     if (b == true) {
@@ -63,6 +63,7 @@ public class OrderModel {
                     }
                 }
             }
+
             return false;
         } catch (Exception e) {
             e.printStackTrace();

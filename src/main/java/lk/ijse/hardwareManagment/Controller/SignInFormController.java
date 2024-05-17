@@ -54,6 +54,7 @@ public class SignInFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
     }
     public void clearFields(){
         txtName.clear();

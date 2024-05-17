@@ -171,15 +171,10 @@ public class CustomerFormController implements Initializable {
         loadTableData();
 
         Pattern patternId = Pattern.compile("^(C0)[0-9]{1,5}$");
-
-
-
         Pattern patternnumber = Pattern.compile("^(1,9),{10}$");
 
 
         map.put(txtId, patternId);
-
-
         map.put(txtNumber,patternnumber);
 
 

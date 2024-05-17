@@ -65,11 +65,11 @@ public class EmployeeModel {
 
     public int UpdateEmployee(String name, String address, String contactnumber, String eid) {
         try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE Employee SET name = ?, address = ?, contactnumber = ? WHERE eid = ?");
-            pstm.setObject(4, name);
-            pstm.setObject(3, address);
-            pstm.setObject(2, contactnumber);
-            pstm.setObject(1, eid);
+            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE employee SET contactnumber = ?, address = ?,  name = ? WHERE eid = ?");
+            pstm.setObject(3, name);
+            pstm.setObject(2, address);
+            pstm.setObject(1, contactnumber);
+            pstm.setObject(4, eid);
             return pstm.executeUpdate();
 
 
