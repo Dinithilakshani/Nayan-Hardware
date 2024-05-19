@@ -124,7 +124,7 @@ public class EmployeeFormController implements Initializable {
         String contactnumber = this.txtNumber.getText();
 
         EmployeeModel employeeModel = new EmployeeModel();
-        int i = employeeModel.UpdateEmployee(name, address, contactnumber, eid);
+        int i = EmployeeModel.UpdateEmployee(new EmployeeDto(eid, name, address, contactnumber));
         if (i > 0) {
             new Alert(Alert.AlertType.CONFIRMATION, "Update Employee").show();
 
@@ -144,7 +144,7 @@ public class EmployeeFormController implements Initializable {
         int i = employeeModel1.DeleteEmployee(id);
 
         if (i > 0) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Update Employee").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "Delete Employee").show();
 
         } else {
             new Alert(Alert.AlertType.ERROR, "Somthing Error").show();

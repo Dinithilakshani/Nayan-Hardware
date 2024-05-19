@@ -242,9 +242,7 @@ void comitemcodeOnACtion(ActionEvent event) throws SQLException {
     }
 
 
-    public void btnAddOnAction(ActionEvent event) {
 
-    }
 
 
     public void txtDescriptionOnAction(ActionEvent event) {

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DbConnection {
     private static DbConnection dbConnection;
-    private Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HardwareManagmentSystem", "root", "1234");
+    private Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hardwaremanagmentsystem", "root", "1234");
 
     private DbConnection() throws SQLException {
     }
@@ -19,5 +19,3 @@ public class DbConnection {
         return this.connection;
     }
 }
-
-

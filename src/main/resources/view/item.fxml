@@ -49,7 +49,7 @@
          </font>
       </Text>
       <TextField fx:id="txtCode" layoutX="182.0" layoutY="166.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="270.0" style="-fx-background-color: white; -fx-background-radius: 20;" />
-      <TextField fx:id="txtDescription" layoutX="182.0" layoutY="252.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="270.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+      <TextField fx:id="txtDescription" layoutX="182.0" layoutY="252.0" onAction="#txtDescriptionSearchOnaction" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="270.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
       <TextField fx:id="txtQty" layoutX="556.0" layoutY="179.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="270.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
       <Label layoutX="830.0" layoutY="81.0" prefHeight="354.0" prefWidth="200.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 15;" />
       <Button fx:id="btnClear" layoutX="857.0" layoutY="359.0" mnemonicParsing="false" onAction="#btnClearOnACtion" prefHeight="50.0" prefWidth="128.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Clear" textFill="#efe7e7">

@@ -221,7 +221,6 @@ public class ItemFormController implements Initializable {
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
         String id = this.txtCode.getText();
-        String sql = "DELETE FROM item WHERE code = ?";
 
         ItemModel itemModel = new ItemModel();
         int i = itemModel.DeleteItem(id);
@@ -271,29 +270,28 @@ public class ItemFormController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Somthing Error").show();
         }
     }
+    @FXML
+    void txtDescriptionSearchOnaction(ActionEvent event) {
 
-        @FXML
-        void txtSearchOnAction(ActionEvent event) {
-            String  description = txtDescription.getText();
+        String  description = txtDescription.getText();
 
-            try {
-                ItemDto itemDto = ItemModel.searchById(description);
+        try {
+            ItemDto itemDto = ItemModel.searchById(description);
 
-                if (itemDto != null) {
-                    txtCode.setText(itemDto.getCode());
-                    txtDescription.setText(itemDto.getDesctription());
-                    txtPrice.setText(String.valueOf(itemDto.getPrice()));
-                    txtQty.setText(String.valueOf(itemDto.getQtyOnHeand()));
+            if (itemDto != null) {
+                txtCode.setText(itemDto.getCode());
+                txtDescription.setText(itemDto.getDesctription());
+                txtPrice.setText(String.valueOf(itemDto.getPrice()));
+                txtQty.setText(String.valueOf(itemDto.getQtyOnHeand()));
 
-                }
-            } catch (SQLException e) {
-                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-            } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e);
             }
-
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
 
+    }
 
 
 

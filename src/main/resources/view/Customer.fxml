@@ -44,7 +44,7 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Text>
-      <TextField fx:id="txtName" layoutX="135.0" layoutY="272.0" onKeyReleased="#OnKeyRekesed" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
+      <TextField fx:id="txtName" layoutX="100.0" layoutY="272.0" onKeyReleased="#OnKeyRekesed" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
       <TextField fx:id="txtId" layoutX="100.0" layoutY="182.0" onKeyReleased="#OnKeyRekesed" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
       <TextField fx:id="txtEmail" layoutX="482.0" layoutY="164.0" onKeyReleased="#OnKeyRekesed" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
       <TextField fx:id="txtAddress" layoutX="482.0" layoutY="272.0" onKeyReleased="#OnKeyRekesed" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
@@ -53,44 +53,34 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="txtNumber" layoutX="135.0" layoutY="381.0" onAction="#txtSearchOnAction" onKeyReleased="#OnKeyRekesed" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
-      <Label layoutX="808.0" layoutY="135.0" prefHeight="324.0" prefWidth="190.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 15;" />
+      <TextField fx:id="txtNumber" layoutX="100.0" layoutY="377.0" onAction="#txtSearchOnAction" onKeyReleased="#OnKeyRekesed" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
+      <Label layoutX="808.0" layoutY="157.0" prefHeight="302.0" prefWidth="190.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 15;" />
       <Button fx:id="btnClear" layoutX="838.0" layoutY="382.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Clear" textFill="WHITE">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="btnUpdate" layoutX="838.0" layoutY="238.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Update" textFill="#fcefef">
+      <Button fx:id="btnUpdate" layoutX="838.0" layoutY="282.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Update" textFill="#fcefef">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="btnSave" layoutX="839.0" layoutY="161.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="50.0" prefWidth="129.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Save" textFill="#d6e0e4">
+      <Button fx:id="btnSave" layoutX="838.0" layoutY="192.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="50.0" prefWidth="129.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Save" textFill="#d6e0e4">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete" layoutX="838.0" layoutY="312.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Delete" textFill="#efefef">
-         <font>
-            <Font name="System Bold" size="19.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="24.0" fitWidth="23.0" layoutX="839.0" layoutY="325.0">
-         <image>
-            <Image url="@../assets/bin.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="24.0" fitWidth="23.0" layoutX="851.0" layoutY="395.0">
          <image>
             <Image url="@../assets/broom.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="23.0" layoutX="849.0" layoutY="174.0">
+      <ImageView fitHeight="24.0" fitWidth="23.0" layoutX="851.0" layoutY="205.0">
          <image>
             <Image url="@../assets/download.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="23.0" layoutX="850.0" layoutY="253.0">
+      <ImageView fitHeight="24.0" fitWidth="23.0" layoutX="849.0" layoutY="295.0">
          <image>
             <Image url="@../assets/refresh.png" />
          </image>

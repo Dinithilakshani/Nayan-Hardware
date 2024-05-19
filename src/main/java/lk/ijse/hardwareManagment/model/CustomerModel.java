@@ -19,43 +19,55 @@ public class CustomerModel {
 
     public static CustomerDto searchById(String contactnumber) throws SQLException, ClassNotFoundException {
 
-            String sql = "SELECT * FROM customer WHERE  contactnumber=?";
+        String sql = "SELECT * FROM customer WHERE  contactnumber=?";
 
-            PreparedStatement pstm = DbConnection.getInstance().getConnection()
-                    .prepareStatement(sql);
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
 
-            pstm.setObject(1,contactnumber);
-            ResultSet resultSet = pstm.executeQuery();
+        pstm.setObject(1, contactnumber);
+        ResultSet resultSet = pstm.executeQuery();
 
-            CustomerDto customerDto = null;
-
-
+        CustomerDto customerDto = null;
 
 
-            if (resultSet.next()) {
-                String customerId = resultSet.getString(2);
-                String customerName = resultSet.getString(1);
-                String contact = resultSet.getString(4);
-                String customerAddress = resultSet.getString(3);
-                String customerEmail = resultSet.getString(5);
+        if (resultSet.next()) {
+            String customerId = resultSet.getString(2);
+            String customerName = resultSet.getString(1);
+            String contact = resultSet.getString(4);
+            String customerAddress = resultSet.getString(3);
+            String customerEmail = resultSet.getString(5);
 
 
-                customerDto  = new CustomerDto( customerId, customerName, contact,customerAddress,customerEmail);
-            }
-            return customerDto;
+            customerDto = new CustomerDto(customerId, customerName, contact, customerAddress, customerEmail);
         }
-
-    public static boolean updatecustomer(CustomerDto customerDto) throws SQLException {
-        //String sql = "update customer  name = ?,address = ?,email = ? , contactnumber = ? where id =?";
-        PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("update customer set name = ?,address = ?,email = ? , contactnumber = ? where id =?");
-        pstm.setObject(1,customerDto.getName());
-        pstm.setObject(5,customerDto.getId());
-        pstm.setObject(3,customerDto.getEmail());
-        pstm.setObject(4,customerDto.getContact());
-        pstm.setObject(2,customerDto.getAddress());
-
-        return pstm.executeUpdate() > 0;
+        return customerDto;
     }
+
+
+
+    public static int updatecustomers(CustomerDto dto) {
+
+        try {
+            System.out.println(dto.getId());
+            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE customer SET  name = ?, address = ?, email = ? , contactnumber = ?WHERE id = ?");
+
+            pstm.setObject(2, dto.getAddress());
+            pstm.setObject(5, dto.getId());
+            pstm.setObject(4, dto.getContact());
+            pstm.setObject(1, dto.getName());
+            pstm.setObject(3, dto.getEmail());
+
+            return pstm.executeUpdate();
+
+        } catch (SQLException var8) {
+            throw new RuntimeException();
+        }
+    }
+
+
+
+
+
 
    /* public static String getcustomerId(String value) {
         String sql = "select * from customer where email =?";
@@ -99,17 +111,7 @@ throw new RuntimeException();
 
 
 
-    public int deleteCustomer(String contactnumber) {
-        try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM customer WHERE contactnumber = ?");
-            pstm.setObject(1, contactnumber);
-return pstm.executeUpdate();
 
-        } catch (SQLException var5) {
-            throw new RuntimeException();
-
-        }
-    }
 
 
     public ArrayList<CustomerDto> tble() {
@@ -189,7 +191,21 @@ return pstm.executeUpdate();
 
 
     }
-}
+
+    public int DeleteItem(String id) {
+        try {
+            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM customer WHERE id = ?");
+
+            pstm.setObject(1, id);
+
+            return pstm.executeUpdate();
+
+        } catch (SQLException var5) {
+            throw new RuntimeException();
+        }
+    }
+    }
+
 
 
 

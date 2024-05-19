@@ -149,10 +149,9 @@ public class SupplierFormController implements Initializable {
         String name = this.txtname.getText();
         String emailaddress = this.txtAddress.getText();
         String contactnumber = this.txtNumber.getText();
-        String sql = "UPDATE Supplier SET SName = ?, emailaddress = ?, contactnumber = ? WHERE SId = ?";
 
             SupplierModel supplierModel = new SupplierModel();
-            int i = supplierModel.UpdateSupplier(name,emailaddress,contactnumber,eid);
+            int i = SupplierModel.UpdateSuppliers(new SupplierDto(eid, name, emailaddress, contactnumber));
 
             if(i>0){
                 new Alert(Alert.AlertType.CONFIRMATION,"Delete Supplier").show();
@@ -170,7 +169,7 @@ public class SupplierFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colEmail.setCellValueFactory(new PropertyValueFactory<>("EmailAddress"));
         colNum.setCellValueFactory(new PropertyValueFactory<>("Number"));
-        colDescription.setCellValueFactory(new PropertyValueFactory<>("Number"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         colCompany.setCellValueFactory(new PropertyValueFactory<>("SupplierCompany"));
 
 

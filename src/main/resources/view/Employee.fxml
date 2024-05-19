@@ -47,20 +47,16 @@
       <TextField fx:id="txtid" layoutX="135.0" layoutY="264.0" onKeyReleased="#txtOnKeyReleased" prefHeight="35.0" prefWidth="254.0" style="-fx-alignment: white; -fx-background-radius: 15;" />
       <TextField fx:id="txtNumber" layoutX="540.0" layoutY="259.0" onAction="#txtsearchOnAction" onKeyReleased="#txtOnKeyReleased" prefHeight="35.0" prefWidth="254.0" style="-fx-alignment: white; -fx-background-radius: 15;" />
       <TextField fx:id="txtAddress" layoutX="540.0" layoutY="181.0" onKeyReleased="#txtOnKeyReleased" prefHeight="35.0" prefWidth="254.0" style="-fx-alignment: white; -fx-background-radius: 15;" />
-      <Label layoutX="834.0" layoutY="144.0" prefHeight="332.0" prefWidth="197.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 15;" textFill="#dff9fb" />
+      <Label layoutX="834.0" layoutY="184.0" prefHeight="292.0" prefWidth="186.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 15;" textFill="#dff9fb" />
       <Button fx:id="BtnClear" layoutX="866.0" layoutY="400.0" mnemonicParsing="false" onAction="#BtnClearOnAction" prefHeight="50.0" prefWidth="131.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Clear" textFill="#efeaea">
          <font>
             <Font name="System Bold" size="19.0" />
          </font></Button>
-      <Button fx:id="BtnSave" layoutX="866.0" layoutY="165.0" mnemonicParsing="false" onAction="#BtnSaveOnAction" prefHeight="50.0" prefWidth="131.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Save" textAlignment="CENTER" textFill="#f7eeee">
+      <Button fx:id="BtnSave" layoutX="867.0" layoutY="222.0" mnemonicParsing="false" onAction="#BtnSaveOnAction" prefHeight="50.0" prefWidth="131.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Save" textAlignment="CENTER" textFill="#f7eeee">
          <font>
             <Font name="System Bold" size="19.0" />
          </font></Button>
-      <Button fx:id="BtnUpdate" layoutX="866.0" layoutY="240.0" mnemonicParsing="false" onAction="#BtnUpdateOnAction" prefHeight="50.0" prefWidth="131.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Update" textFill="#e1dada">
-         <font>
-            <Font name="System Bold" size="19.0" />
-         </font></Button>
-      <Button fx:id="btnDelete" layoutX="866.0" layoutY="323.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="50.0" prefWidth="131.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Delete" textFill="#dfd6d6">
+      <Button fx:id="BtnUpdate" layoutX="866.0" layoutY="311.0" mnemonicParsing="false" onAction="#BtnUpdateOnAction" prefHeight="50.0" prefWidth="131.0" style="-fx-background-color: #718093; -fx-background-radius: 15;" text="Update" textFill="#e1dada">
          <font>
             <Font name="System Bold" size="19.0" />
          </font></Button>
@@ -77,22 +73,17 @@
             <TableColumn fx:id="colNumber" prefWidth="267.199951171875" text="Contactnumber" />
         </columns>
       </TableView>
-      <ImageView fitHeight="17.0" fitWidth="25.0" layoutX="873.0" layoutY="340.0">
-         <image>
-            <Image url="@../assets/bin.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="24.0" fitWidth="34.0" layoutX="868.0" layoutY="413.0">
          <image>
             <Image url="@../assets/broom.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="17.0" fitWidth="25.0" layoutX="872.0" layoutY="182.0">
+      <ImageView fitHeight="17.0" fitWidth="25.0" layoutX="887.0" layoutY="239.0">
          <image>
             <Image url="@../assets/download.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="17.0" fitWidth="25.0" layoutX="868.0" layoutY="256.0">
+      <ImageView fitHeight="17.0" fitWidth="25.0" layoutX="874.0" layoutY="328.0">
          <image>
             <Image url="@../assets/refresh.png" />
          </image>

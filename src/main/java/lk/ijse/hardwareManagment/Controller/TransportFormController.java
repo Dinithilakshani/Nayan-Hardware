@@ -162,7 +162,7 @@ public class TransportFormController implements Initializable {
         String date = this.txtDate.getPromptText();
 
         TransportModel transportModel = new TransportModel();
-        int i = transportModel.Updatetransport(id, area, time, vehical, date);
+        int i = transportModel.updateTransport(new TransportDeto(id, area, time, vehical,date));
 
         if (i > 0) {
             new Alert(Alert.AlertType.CONFIRMATION, "Update Transport").show();
@@ -198,9 +198,11 @@ public class TransportFormController implements Initializable {
         tblTransport.setItems(FXCollections.observableList(data));
     }
 
-    @FXML
-    void comVehicalOnAction(ActionEvent event) {
 
+
+
+    @FXML
+    void txtVehicalOnACtion(ActionEvent event) {
 
         String vehicalid = txtVehical.getText();
 
@@ -223,8 +225,8 @@ public class TransportFormController implements Initializable {
 
     }
 
-    public void txtVehicalOnACtion(ActionEvent event) {
-    }
+
+
 
     public void txtOnKeyRelesed(KeyEvent keyEvent) {
         ValidateUtil.validation(map);

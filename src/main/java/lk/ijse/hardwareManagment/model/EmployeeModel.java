@@ -6,6 +6,7 @@ import javafx.scene.control.ButtonType;
 import lk.ijse.hardwareManagment.db.DbConnection;
 import lk.ijse.hardwareManagment.dto.CustomerDto;
 import lk.ijse.hardwareManagment.dto.EmployeeDto;
+import lk.ijse.hardwareManagment.dto.ItemDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -39,8 +40,21 @@ public class EmployeeModel {
         return employeeDto;
     }
 
+    public static int UpdateEmployee(EmployeeDto dto) {
+        try {
+            System.out.println(dto.getId());
+            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE employee SET  contactnumber = ?, address = ?,name  = ? WHERE eid = ?");
 
+            pstm.setObject(2, dto.getAddress());
+            pstm.setObject(4, dto.getId());
+            pstm.setObject(1, dto.getContactnumber());
+            pstm.setObject(3, dto.getName());
+            return pstm.executeUpdate();
 
+        } catch (SQLException var8) {
+            throw new RuntimeException();
+        }
+    }
 
 
 
@@ -49,6 +63,7 @@ public class EmployeeModel {
         try {
             Connection connection = DbConnection.getInstance().getConnection();
             PreparedStatement pstm = connection.prepareStatement("INSERT INTO Employee VALUES(?, ?, ?,?)");
+
             pstm.setObject(1, id);
             pstm.setObject(4, name);
             pstm.setObject(3, address);
@@ -63,26 +78,10 @@ public class EmployeeModel {
     }
 
 
-    public int UpdateEmployee(String name, String address, String contactnumber, String eid) {
-        try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE employee SET contactnumber = ?, address = ?,  name = ? WHERE eid = ?");
-            pstm.setObject(3, name);
-            pstm.setObject(2, address);
-            pstm.setObject(1, contactnumber);
-            pstm.setObject(4, eid);
-            return pstm.executeUpdate();
-
-
-        } catch (SQLException var8) {
-            throw new RuntimeException();
-
-        }
-
-    }
 
     public int DeleteEmployee(String id) {
         try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM Employee WHERE eid = ?");
+            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM employee WHERE eid = ?");
             pstm.setObject(1, id);
             return pstm.executeUpdate();
 

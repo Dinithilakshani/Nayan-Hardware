@@ -57,39 +57,30 @@
       <TextField fx:id="txtNumber" layoutX="567.0" layoutY="250.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="232.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
       <TextField fx:id="txtAddress" layoutX="565.0" layoutY="169.0" onAction="#txtSearchOnAction" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="232.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
       <TextField fx:id="txtid" layoutX="198.0" layoutY="250.0" onKeyReleased="#txtOnKeyRelesed" prefHeight="35.0" prefWidth="254.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
-      <Label layoutX="854.0" layoutY="109.0" prefHeight="330.0" prefWidth="182.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 15;" />
-      <Button fx:id="btnClear" layoutX="891.0" layoutY="359.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="50.0" prefWidth="126.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Clear">
+      <Label layoutX="854.0" layoutY="131.0" prefHeight="308.0" prefWidth="182.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 15;" />
+      <Button fx:id="btnClear" layoutX="881.0" layoutY="359.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="50.0" prefWidth="126.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Clear" textFill="#f2e2e2">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button fx:id="btnUpdate" layoutX="881.0" layoutY="214.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="50.0" prefWidth="126.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Update">
+      <Button fx:id="btnUpdate" layoutX="882.0" layoutY="268.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="50.0" prefWidth="126.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Update" textFill="#efe8e8">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button fx:id="btnSave" layoutX="882.0" layoutY="143.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="50.0" prefWidth="126.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Save">
+      <Button fx:id="btnSave" layoutX="881.0" layoutY="170.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="50.0" prefWidth="126.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Save" textFill="#f2e8e8">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button fx:id="btnDelete" layoutX="882.0" layoutY="286.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="50.0" prefWidth="126.0" style="-fx-background-color: #718093; -fx-background-radius: 30;" text="Delete">
-         <font>
-            <Font size="18.0" />
-         </font></Button>
-      <ImageView fitHeight="17.0" fitWidth="27.0" layoutX="892.0" layoutY="303.0">
-         <image>
-            <Image url="@../assets/bin.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="887.0" layoutY="227.0">
+      <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="887.0" layoutY="281.0">
          <image>
             <Image url="@../assets/refresh.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="17.0" fitWidth="27.0" layoutX="887.0" layoutY="156.0">
+      <ImageView fitHeight="17.0" fitWidth="27.0" layoutX="887.0" layoutY="187.0">
          <image>
             <Image url="@../assets/download.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="17.0" fitWidth="39.0" layoutX="900.0" layoutY="376.0">
+      <ImageView fitHeight="17.0" fitWidth="39.0" layoutX="881.0" layoutY="376.0">
          <image>
             <Image url="@../assets/broom.png" />
          </image>

@@ -10,7 +10,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import lk.ijse.hardwareManagment.db.DbConnection;
 import lk.ijse.hardwareManagment.dto.CustomerDto;
+import lk.ijse.hardwareManagment.dto.EmployeeDto;
 import lk.ijse.hardwareManagment.model.CustomerModel;
+import lk.ijse.hardwareManagment.model.EmployeeModel;
+import lk.ijse.hardwareManagment.model.ItemModel;
 import lk.ijse.hardwareManagment.util.ValidateUtil;
 
 import java.net.URL;
@@ -85,12 +88,11 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-        String contactnumber = this.txtNumber.getText();
+        String id = this.txtId.getText();
 
         CustomerModel customerModel = new CustomerModel();
-        int i = customerModel.deleteCustomer(contactnumber);
-
-        if (i < 0) {
+        int i = customerModel.DeleteItem(id);
+        if (i > 0) {
             new Alert(Alert.AlertType.CONFIRMATION, "Delete Customer").show();
 
         } else {
@@ -99,6 +101,12 @@ public class CustomerFormController implements Initializable {
 
 
     }
+
+
+
+
+
+
 
 
     @FXML
@@ -131,7 +139,7 @@ public class CustomerFormController implements Initializable {
         this.txtEmail.setText("");
 
         CustomerModel customerModel = new CustomerModel();
-        //int i = customerModel.Clearcustomer (txtEmail,txtId,txtName,txtAddress,txtNumber);
+
     }
 
 
@@ -144,13 +152,22 @@ public class CustomerFormController implements Initializable {
         String contactnumber = this.txtNumber.getText();
         String email = this.txtEmail.getText();
 
+        CustomerModel customerModel = new CustomerModel();
+        int i = CustomerModel.updatecustomers(new CustomerDto(eid, name, address, contactnumber,email));
+        if (i > 0) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Update Employee").show();
 
-        CustomerDto customerDto = new CustomerDto(eid,name,address,contactnumber,email);
-        boolean isUpdated = CustomerModel.updatecustomer(customerDto);
-        if (isUpdated) {
-            new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Somthing Error").show();
+
+
         }
     }
+
+
+
+
+
 
 
 

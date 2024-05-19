@@ -87,22 +87,6 @@ public class TransportModel {
         }
     }
 
-    public int Updatetransport(String id, String area, String time, String vehical, String date) {
-        try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE TransportDetails SET  T_area = ?, t_time = ?, T_id =?,T_Date WHERE id = ?");
-            pstm.setObject(5, id);
-
-            pstm.setObject(1, area);
-            pstm.setObject(2, time);
-            pstm.setObject(5, vehical);
-            pstm.setObject(4, date);
-            return pstm.executeUpdate();
-
-
-        } catch (SQLException var8) {
-            throw new RuntimeException();
-        }
-    }
 
     public int Deletetransport(String id) {
         try {
@@ -135,5 +119,24 @@ public class TransportModel {
         datalist.add(series);
         return datalist;
     }
-}
+
+    public int updateTransport(TransportDeto dto) {
+        try {
+            System.out.println(dto.getTid());
+            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE transportdetails  SET  T_area = ?, t_time = ?, T_id = ? , T_Date = ?WHERE id = ?");
+
+            pstm.setObject(4, dto.getDate());
+            pstm.setObject(5, dto.getTid());
+            pstm.setObject(2, dto.getTtime());
+            pstm.setObject(3, dto.getVehicalId());
+            pstm.setObject(1, dto.getTarea());
+
+            return pstm.executeUpdate();
+
+        } catch (SQLException var8) {
+            throw new RuntimeException();
+        }
+    }
+    }
+
 

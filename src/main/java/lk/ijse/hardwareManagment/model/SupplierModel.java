@@ -25,12 +25,9 @@ public class SupplierModel {
 
                 SupplierDto supplierDto = new SupplierDto(
                         resultSet.getString(1),
-                        resultSet.getString(2),
                         resultSet.getString(4),
-                        resultSet.getString(3)
-
-
-
+                        resultSet.getString(3),
+                        resultSet.getString(2)
 
 
                 );
@@ -45,35 +42,48 @@ public class SupplierModel {
 
     }
 
-    public static SupplierDto searchByemail(String emailAddress) throws SQLException, ClassNotFoundException{
+    public static SupplierDto searchByemail(String emailAddress) throws SQLException, ClassNotFoundException {
 
 
-            String sql = "SELECT * FROM supplier WHERE  imeladdress=?";
+        String sql = "SELECT * FROM supplier WHERE  imeladdress=?";
 
-            PreparedStatement pstm = DbConnection.getInstance().getConnection()
-                    .prepareStatement(sql);
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
 
-            pstm.setObject(1, emailAddress);
-            ResultSet resultSet = pstm.executeQuery();
+        pstm.setObject(1, emailAddress);
+        ResultSet resultSet = pstm.executeQuery();
 
-            SupplierDto supplierDto = null;
-
-
-            if (resultSet.next()) {
-                String Supplierid = resultSet.getString(3);
-                String Suppliername = resultSet.getString(1);
-                String contact = resultSet.getString(4);
-                String Address = resultSet.getString(2);
+        SupplierDto supplierDto = null;
 
 
-                supplierDto = new SupplierDto(Supplierid, Suppliername, contact, Address);
-            }
-            return supplierDto;
+        if (resultSet.next()) {
+            String Supplierid = resultSet.getString(3);
+            String Suppliername = resultSet.getString(1);
+            String contact = resultSet.getString(4);
+            String Address = resultSet.getString(2);
+
+
+            supplierDto = new SupplierDto(Supplierid, Suppliername, contact, Address);
         }
+        return supplierDto;
+    }
 
+    public static int UpdateSuppliers(SupplierDto dto) {
 
+        try {
+            System.out.println(dto.getSupplierCompany());
+            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE supplier SET  SName = ?, contactnumber = ?,imeladdress  = ? WHERE  SID= ?");
 
+            pstm.setObject(2, dto.getSupplierCompany());
+            pstm.setObject(4, dto.getDescription());
+            pstm.setObject(1, dto.getNumber());
+            pstm.setObject(3, dto.getEmailAddress());
+            return pstm.executeUpdate();
 
+        } catch (SQLException var8) {
+            throw new RuntimeException();
+        }
+    }
 
 
     public int SaveSupplier(String id, String name, String address, String tel) {
@@ -98,31 +108,13 @@ public class SupplierModel {
             PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("DELETE FROM supplier WHERE SId = ?");
             pstm.setObject(1, id);
 
-                return pstm.executeUpdate();
+            return pstm.executeUpdate();
 
 
-            } catch(SQLException var5){
-                throw new RuntimeException();
-            }
-        }
-
-
-
-    public int UpdateSupplier(String name, String emailaddress, String contactnumber, String eid) {
-        try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement("UPDATE supplier SET SName = ?, emailaddress = ?, contactnumber = ? WHERE SId = ?");
-            pstm.setObject(1, name);
-            pstm.setObject(2, emailaddress);
-            pstm.setObject(3, contactnumber);
-            pstm.setObject(4, eid);
-
-    return pstm.executeUpdate();
-
-        } catch (SQLException var8) {
+        } catch (SQLException var5) {
             throw new RuntimeException();
-
-
         }
-
     }
+
+
 }
