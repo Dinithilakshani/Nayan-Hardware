@@ -136,23 +136,6 @@ public class EmployeeFormController implements Initializable {
     }
 
 
-    @FXML
-    void btnDeleteOnAction(ActionEvent event) {
-        String id = txtid.getText();
-
-        EmployeeModel employeeModel1 = new EmployeeModel();
-        int i = employeeModel1.DeleteEmployee(id);
-
-        if (i > 0) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Delete Employee").show();
-
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Somthing Error").show();
-
-
-        }
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colNumber.setCellValueFactory(new PropertyValueFactory<>("contactnumber"));

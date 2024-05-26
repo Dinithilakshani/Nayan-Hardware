@@ -93,23 +93,6 @@ public class SupplierFormController implements Initializable {
 
     }
 
-    @FXML
-    void btnDeleteOnAction(ActionEvent event) {
-        String id = this.txtid.getText();
-        String sql = "DELETE FROM Supplier WHERE SId = ?";
-        SupplierModel supplierModel = new SupplierModel();
-        int i = supplierModel.DeleteSupplier(id);
-
-        if(i>0){
-            new Alert(Alert.AlertType.CONFIRMATION,"Delete Supplier").show();
-
-        }else{
-            new Alert(Alert.AlertType.ERROR,"Somthing Error").show();
-        }
-
-    }
-
-
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {

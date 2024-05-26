@@ -87,29 +87,6 @@ public class CustomerFormController implements Initializable {
     }
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) {
-        String id = this.txtId.getText();
-
-        CustomerModel customerModel = new CustomerModel();
-        int i = customerModel.DeleteItem(id);
-        if (i > 0) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Delete Customer").show();
-
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Somthing Error").show();
-        }
-
-
-    }
-
-
-
-
-
-
-
-
-    @FXML
     void btnSaveOnAction(ActionEvent event) {
         String id = this.txtId.getText();
         String name = this.txtName.getText();

@@ -120,28 +120,6 @@ public class TransportFormController implements Initializable {
 
     }
 
-    @FXML
-    void btnDeleteOnAction(ActionEvent event) {
-        String id = this.textId.getText();
-        String sql = "DELETE FROM tansportDetails WHERE T_id = ?";
-
-        TransportModel transportModel = new TransportModel();
-        int i = transportModel.Deletetransport(id);
-
-
-        try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
-            pstm.setObject(1, id);
-            if (pstm.executeUpdate() > 0) {
-                (new Alert(Alert.AlertType.CONFIRMATION, "Transport deleted!", new ButtonType[0])).show();
-                this.clearFields();
-                loadTableData();
-            }
-        } catch (SQLException var5) {
-            (new Alert(Alert.AlertType.ERROR, var5.getMessage(), new ButtonType[0])).show();
-        }
-
-    }
 
     private void clearFields() {
         this.textId.setText("");
