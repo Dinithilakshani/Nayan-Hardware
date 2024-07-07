@@ -27,9 +27,9 @@ public class TransportModel {
                 TransportDeto transportDeto = new TransportDeto(
                         resultSet.getString(1),
                         resultSet.getString(2),
+                        resultSet.getString(4),
                         resultSet.getString(3),
-                        resultSet.getString(5),
-                        resultSet.getString(4)
+                        resultSet.getString(5)
 
                 );
                 Transport.add(transportDeto);
